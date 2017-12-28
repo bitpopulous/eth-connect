@@ -2,7 +2,8 @@ import {
     account,
     connect,
     event,
-    method
+    method,
+    processAbi
 } from './methods';
 import {
     network,
@@ -18,3 +19,4 @@ import {
 var settings = {
     web3: connect(network.ropsten)
 }
+
