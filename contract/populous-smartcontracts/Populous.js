@@ -1,6 +1,6 @@
 import {
     method
-} from '../../methods';
+} from '../../methods/index';
 
 module.exports = {
     //returns crowdsale
