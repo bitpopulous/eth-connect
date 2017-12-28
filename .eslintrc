@@ -1,0 +1,27 @@
+{
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "plugins": [
+    "import"
+  ],
+  "globals": {
+    "after": true,
+    "afterAll": true,
+    "before": true,
+    "beforeAll": true,
+    "describe": true,
+    "expect": true,
+    "it": true,
+  },
+  "rules": {
+    "arrow-body-style": ["error", "as-needed"],
+    "arrow-parens": 0,
+    "comma-dangle": ["error", "always-multiline"],
+    "consistent-return": 0,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+    "import/prefer-default-export": 0,
+    "no-unused-expressions": 0,
+    "padded-blocks": 0,
+    "prefer-arrow-callback": 0,
+  }
+}
