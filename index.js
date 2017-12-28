@@ -2,7 +2,8 @@ import {
     account,
     connect,
     event,
-    method
+    method,
+    processAbi
 } from './methods';
 import {
     network,
@@ -62,3 +63,9 @@ var settings = {
 // populous.getCurrency(connect(network.ropsten), contract.populous, '0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd', 'GBP').then(result => {
 //     console.log(result);
 // })
+
+//Example 4
+
+// processAbi.process(settings.web3,contract.populous).then((result) =>{
+//     console.log(result);
+// });
