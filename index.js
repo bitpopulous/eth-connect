@@ -3,15 +3,15 @@ import {
     connect,
     event,
     method
-} from './src/methods';
+} from './methods';
 import {
     network,
     contract
-} from './src/config';
+} from './config';
 
 import {
     populous
-} from './src/contract/populous-smartcontracts'
+} from './contract/populous-smartcontracts'
 
 
 
