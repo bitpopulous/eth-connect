@@ -62,3 +62,10 @@ var settings = {
 // populous.getCurrency(connect(network.ropsten), contract.populous, '0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd', 'GBP').then(result => {
 //     console.log(result);
 // })
+
+
+
+// Example 4 - dynamic contract (ABI) loading
+
+// example 4.1: contract._build('populous', '0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd');
+// example 4.2: contract.populous
