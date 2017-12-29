@@ -1,56 +1,5 @@
 export default {
 
-  create: (connect, contract, from, clientId) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-    const params = {
-      clientId: connect.utils.asciiToHex(clientId)
-    }
-
-    return contractInstance.methods
-      .create(...Object.values(params))
-      .send({
-        from: from
-      });
-  },
-
-  deposit: (connect, contract, from, clientId, tokenContract, receiveCurrency, depositAmount, receiveAmount) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-    //anything that takes bytes or bytes1-32, is converted to buff.
-    const params = {
-      clientId: connect.utils.asciiToHex(clientId),
-      tokenContract: connect.utils.asciiToHex(tokenContract),
-      receiveCurrency: connect.utils.asciiToHex(receiveCurrency),
-      depositAmount,
-      receiveAmount
-    }
-
-    return contractInstance.methods
-      .deposit(...Object.values(params))
-      .send({
-        from: from
-      });
-  },
-
-  releaseDeposit: (connect, contract, from, clientId, tokenContract, receiveCurrency, receiver, depositIndex) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-    const params = {
-      clientId: connect.utils.asciiToHex(clientId),
-      tokenContract: connect.utils.asciiToHex(tokenContract),
-      receiveCurrency: connect.utils.asciiToHex(receiveCurrency),
-      receiver: connect.utils.asciiToHex(receiver),
-      depositIndex
-    }
-
-    return contractInstance.methods
-      .releaseDeposit(...Object.values(params))
-      .send({
-        from: from
-      });
-  },
-
   getDepositAddress: (connect, contract, from, clientId) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
@@ -70,7 +19,7 @@ export default {
 
     const params = {
       clientId: connect.utils.asciiToHex(clientId),
-      tokenContract: connect.utils.asciiToHex(tokenContract),
+      tokenContract,
       receiveCurrency: connect.utils.asciiToHex(receiveCurrency)
     }
 
@@ -86,7 +35,7 @@ export default {
 
     const params = {
       clientId: connect.utils.asciiToHex(clientId),
-      tokenContract: connect.utils.asciiToHex(tokenContract),
+      tokenContract,
       receiveCurrency: connect.utils.asciiToHex(receiveCurrency),
       depositIndex
     }
@@ -97,4 +46,5 @@ export default {
         from: from
       });
   }
+
 };
