@@ -12,6 +12,7 @@ import {
   getValueFromContract,
   getValueFromContractAtAddress,
 } from './methods';
+import appConfig from './config';
 import api from './api';
 
 /**
@@ -26,7 +27,7 @@ export default class EthConnect {
 
       // Path from root
       contractsPath = '../populous-smartcontracts/build/contracts',
-      ethRPCURL = process.env.ETH_COMM_RCP_URL,
+      ethRPCURL = process.env.ETH_COMM_RCP_URL || 'ws://' + appConfig.network.ropsten.address + ':' + appConfig.network.ropsten.port,
       localAddress = process.env.ETH_COMM_LOCAL_ADDRESS,
       localAddressPassword = process.env.ETH_COMM_LOCAL_ADDRESS_PASSWORD,
       gas = {
