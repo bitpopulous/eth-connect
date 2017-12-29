@@ -1,4 +1,4 @@
-###Instructions
+### Instructions
 
 - clone this repo
 - clone smartcontracts repo
@@ -11,7 +11,7 @@
 
 **Notice: test can be failed because: you dont have enough gas ar not export env variables**
 
-###Directory structure:
+### Directory structure:
 - api - hold all methods for interact with smart contracts, test for this methods and helpers
 - helpers - hold helpers function
   - get-random-contract-name.js - function for test function that implement logic for interact with ethComm, probably need to move in other place
@@ -27,7 +27,7 @@ Why we should use object?
 
 - it prevent code duplicate and help to write code faster
 
-###Need to implement
+### Need to implement
 
 - ability to work with testrpc, network doesn't need unlock account and use http web3 provider
 - ability to get all event Data, get-value-from-tx.js fix
@@ -37,29 +37,32 @@ Why we should use object?
 - add lock method
 - maybe add dotenv for easy work
 
-###Examples:
+### Examples:
 
-Create Eth Adapter Instance, expect that smart contracts repo cloned near current on one directory level:
+Create Eth Connect Instance, expect that smart contracts repo cloned near current on one directory level:
 
 -> in this case object will try to get config from environment variables
--> for export variables you can use dotenv or this command, values are dummy
--> export ETH_COMM_RCP_URL=ws://localhost:8546 0x24jky5i734i53k4h5i34u53kj45b ETH_COMM_LOCAL_ADDRESS_PASSWORD=password
 
-const ethInst = new EthConnect();
+-> for export variables you can use dotenv or this command, values are dummy
+
+-> `export ETH_COMM_RCP_URL=ws://localhost:8546 0x24jky5i734i53k4h5i34u53kj45b ETH_COMM_LOCAL_ADDRESS_PASSWORD=password`
+
+`const ethInst = new EthConnect();`
 
 -> in this case object will use provided config, if something missed, it will fallback to environment variables
 
+```
 const ethInst = new EthConnect({
    ethRPCURL: 'ws://localhost:8546', // dummy for example
       localAddress = '0x24jky5i734i53k4h5i34u53kj45b', // dummy for example
       localAddressPassword = 'password', // dummy for example
 });
-
+```
 
 All method for interact with smart contracts available under 'api' name space
 
-ethInst.api.populous.getCurrency('EUR')
+`ethInst.api.populous.getCurrency('EUR')`
 
-return '0x7f62B3960D54abE0D161201bb361Ed5F8e419CbB' or throw error
+return `0x7f62B3960D54abE0D161201bb361Ed5F8e419CbB` or throw error
 
 
