@@ -10,56 +10,11 @@ export default {
       });
   },
 
-  closeCrowdsale: (connect, contract, from) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-    return contractInstance.methods
-      .closeCrowdsale()
-      .send({
-        from: from
-      });
-  },
-
   checkDeadline: (connect, contract, from) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
     return contractInstance.methods
       .checkDeadline()
-      .send({
-        from: from
-      });
-  },
-
-  bid: (connect, contract, from, groupIndex, bidderId, name, value) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-    const params = {
-      groupIndex: groupIndex,
-      bidderId: connect.utils.asciiToHex(bidderId),
-      name: name,
-      value: value
-    }
-
-    return contractInstance.methods
-      .bid(...Object.values(params))
-      .send({
-        from: from
-      });
-  },
-
-  initialBid: (connect, contract, from, groupName, goal, bidderId, name, value) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-    const params = {
-      groupName: groupName
-      goal: goal
-      bidderId: connect.utils.asciiToHex(bidderId),
-      name: name
-      value: value
-    }
-
-    return contractInstance.methods
-      .initialBid(...Object.values(params))
       .send({
         from: from
       });
