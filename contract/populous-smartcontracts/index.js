@@ -1,5 +1,7 @@
 import populous from './Populous';
+import depositContractsManager from './DepositContractsManager';
 
 module.exports = {
- populous: populous
+ populous: populous,
+ depositContractsManager: depositContractsManager
 };
