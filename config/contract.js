@@ -22,7 +22,11 @@ module.exports = {
     }
   },
   populous: {
-    abi: getABI('populous'),
+    abi: getABI('Populous'),
+    address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
+  },
+  depositContractsManager: {
+    abi: getABI('DepositContractsManager'),
     address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
   },
   currencyToken:{
