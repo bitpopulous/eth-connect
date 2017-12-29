@@ -1,116 +1,61 @@
 import {
-    method
+  method
 } from '../../methods/index';
 
 module.exports = {
 
+  //Example, when dealing with constant methods or 'view' methods which only get data
+  //returns crowdsale
+  getCurrency: (connect, contract, from, currency) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    //Example, when dealing with constant methods or 'view' methods which only get data
-    //returns crowdsale
-    getCurrency: (connect, contract, from, currency) => {
-        return new Promise((resolve, reject) => {
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+    };
 
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+    return contractInstance.methods
+      .getCurrency(...Object.values(params))
+      .call({from: from});
+  },
 
-            const params = {
-                currency: Buffer.from(currency, 'ascii')
-            }
+  transfer: (connect, contract, from, to, currency, amount) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-            contractInstance.methods.getCurrency('0x' + params.currency.toString('hex')).call({
-                from: from
-            }, function (error, result) {
-                if (!error)
-                    resolve(result)
-                else {
-                    reject(new Error(error))
-                }
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+      from: connect.utils.asciiToHex(from),
+      to: connect.utils.asciiToHex(to),
+      amount,
+    };
 
-            });
+    return contractInstance.methods
+      .transfer(...Object.values(params))
+      .send({from: from});
+  },
 
-        })
-    },
+  getLedgerEntry: (connect, contract, from, currency, accountId) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    transfer: (connect, contract, from, to, currency, amount) => {
-        new Promise((resolve, reject) => {
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+      accountId: connect.utils.asciiToHex(accountId),
+    };
 
+    return contractInstance.methods
+      .getLedgerEntry(...Object.values(params))
+      .call({from: from});
+  },
 
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+  mintTokens: (connect, contract, from, currency, amount) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-            //anything that takes bytes or bytes1-32, is converted to buff.
-            const params = {
-                currency: Buffer.from(currency, 'ascii'),
-                from: Buffer.from(from, 'ascii'),
-                to: Buffer.from(to, 'ascii'),
-                amount: amount
-            }
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+      amount,
+    };
 
-            contractInstance.methods.transfer(
-                    '0x' + params.currency.toString('hex'),
-                    '0x' + params.from.toString('hex'),
-                    '0x' + params.to.toString('hex'),
-                    params.amount
-                ).send({
-                    from: from
-                })
-                .then(function (receipt) {
-                    resolve(receipt);
-                    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
-                })
-                .catch(Error => {
-                    reject(new Error(Error));
-                })
-        })
-
-    },
-    getLedgerEntry: (connect, contract, from, currency, accountId) => {
-        return new Promise((resolve, reject) => {
-
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-            const params = {
-                currency: Buffer.from(currency, 'ascii'),
-                accountId: Buffer.from(accountId, 'ascii')
-            }
-
-            contractInstance.methods.getLedgerEntry(
-                '0x' + params.currency.toString('hex'),
-                '0x' + params.accountId.toString('hex')).call({
-                from: from
-            }, function (error, result) {
-                if (!error)
-                    resolve(result)
-                else {
-                    reject(new Error(error))
-                }
-
-            });
-
-        })
-    },
-    mintTokens: (connect, contract, from, currency, amount) => {
-        return new Promise((resolve, reject) => {
-
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-            const params = {
-                currency: Buffer.from(currency, 'ascii'),
-                amount: amount
-            }
-
-            contractInstance.methods.mintTokens(
-                '0x' + params.currency.toString('hex'),
-                params.amount).send({
-                    from: from
-                })
-                .then(function (receipt) {
-                    resolve(receipt);
-                    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
-                })
-                .catch(Error => {
-                    reject(new Error(Error));
-                })
-
-        })
-    }
-
-}
+    return contractInstance.methods
+      .mintTokens(...Object.values(params))
+      .send({from: from});
+  }
+};
