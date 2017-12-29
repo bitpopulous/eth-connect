@@ -53,12 +53,39 @@ populousObject.mintTokens = function mintTokens(params = {
     .then(getAmount);
 };
 
-populousObject.destroyTokens = function destroyTokens(...params) {
-  return this.callContractMethod('Populous', 'destroyTokens', ...params);
+populousObject.destroyTokens = function destroyTokens(params = {
+  currencySymbol: undefined,
+  amount: undefined,
+}) {
+  const preparedParams = {
+    ...params,
+    currencySymbol: this.web3.utils.toHex(params.currencySymbol),
+  };
+
+  return this.callContractMethod('Populous', 'destroyTokens', ...Object.values(preparedParams));
 };
 
-populousObject.withdraw = function withdraw(...params) {
-  return this.callContractMethod('Populous', 'withdraw', ...params);
+populousObject.withdraw = function withdraw(params = {
+  clientExternalAddress: undefined,
+  ledgerClientId: undefined,
+  currencySymbol: undefined,
+  amount: undefined
+}) {
+  const preparedParams = {
+    ...params,
+    clientExternalAddress: this.web3.utils.toHex(params.clientExternalAddress),
+    ledgerClientId: this.web3.utils.toHex(params.ledgerClientId),
+    currencySymbol: this.web3.utils.toHex(params.currencySymbol),
+  };
+
+  const getWithdrawAmount = getValueFromTX.bind(
+    null,
+    'EventWithdrawal',
+    'amount'
+  );
+
+  return this.callContractMethod('Populous', 'withdraw', ...Object.values(preparedParams))
+    .then(getWithdrawAmount);
 };
 
 populousObject.transfer = function transfer(params = {
