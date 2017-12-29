@@ -7,16 +7,11 @@ module.exports = {
 
     //Example, when dealing with constant methods or 'view' methods which only get data
     //returns crowdsale
-    getCurrency: (connect, contract, from, currency) => {
+    getCurrency: (web3, contract, from, currency) => {
         return new Promise((resolve, reject) => {
+            const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
 
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-            const params = {
-                currency: Buffer.from(currency, 'ascii')
-            }
-
-            contractInstance.methods.getCurrency('0x' + params.currency.toString('hex')).call({
+            contractInstance.methods.getCurrency(web3.utils.asciiToHex(currency)).call({
                 from: from
             }, function (error, result) {
                 if (!error)
@@ -30,25 +25,15 @@ module.exports = {
         })
     },
 
-    transfer: (connect, contract, from, to, currency, amount) => {
-        new Promise((resolve, reject) => {
-
-
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-            //anything that takes bytes or bytes1-32, is converted to buff.
-            const params = {
-                currency: Buffer.from(currency, 'ascii'),
-                from: Buffer.from(from, 'ascii'),
-                to: Buffer.from(to, 'ascii'),
-                amount: amount
-            }
+    transfer: (web3, contract, from, to, currency, amount) => {
+        return new Promise((resolve, reject) => {
+            const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
 
             contractInstance.methods.transfer(
-                    '0x' + params.currency.toString('hex'),
-                    '0x' + params.from.toString('hex'),
-                    '0x' + params.to.toString('hex'),
-                    params.amount
+              web3.utils.asciiToHex(currency),
+              web3.utils.asciiToHex(from),
+              web3.utils.asciiToHex(to),
+              amount
                 ).send({
                     from: from
                 })
@@ -62,19 +47,13 @@ module.exports = {
         })
 
     },
-    getLedgerEntry: (connect, contract, from, currency, accountId) => {
+    getLedgerEntry: (web3, contract, from, currency, accountId) => {
         return new Promise((resolve, reject) => {
-
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
-            const params = {
-                currency: Buffer.from(currency, 'ascii'),
-                accountId: Buffer.from(accountId, 'ascii')
-            }
+            const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
 
             contractInstance.methods.getLedgerEntry(
-                '0x' + params.currency.toString('hex'),
-                '0x' + params.accountId.toString('hex')).call({
+              web3.utils.asciiToHex(currency),
+              web3.utils.asciiToHex(accountId)).call({
                 from: from
             }, function (error, result) {
                 if (!error)
@@ -87,19 +66,15 @@ module.exports = {
 
         })
     },
-    mintTokens: (connect, contract, from, currency, amount) => {
+    mintTokens: (web3, contract, from, currency, amount) => {
         return new Promise((resolve, reject) => {
 
-            const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+            const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
 
-            const params = {
-                currency: Buffer.from(currency, 'ascii'),
-                amount: amount
-            }
 
             contractInstance.methods.mintTokens(
-                '0x' + params.currency.toString('hex'),
-                params.amount).send({
+                web3.utils.asciiToHex(currency),
+                amount).send({
                     from: from
                 })
                 .then(function (receipt) {
