@@ -27,5 +27,6 @@ module.exports = {
   },
   currencyToken:{
     abi: getABI('CurrencyToken'),
+    address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
   },
 };
