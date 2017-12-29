@@ -1,43 +1,65 @@
-/ Example: connect
+###Instructions
 
-`web3: connect(network.ropsten)`
+- clone this repo
+- clone smartcontracts repo
+- go to `eth-connect` directory: `$ cd eth-connect`
+- export env variables with command
 
-Example 0
-```
-step 1, connect to network. takes network
- account.unlock(settings.web3,'0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd','password9', 400).then((result) =>{
-     console.log(result);
- });
-```
+    `export ETH_COMM_RCP_URL=ws://35.177.79.70:8546 ETH_COMM_LOCAL_ADDRESS=0xdb09c99a80254e6821640b8a5c21c7366cf8ff35 ETH_COMM_LOCAL_ADDRESS_PASSWORD=Emirates1`
+- run `npm i`, after install object tests will be run
+- run `npm run test-api` - for test reference methods
 
-/ Example 1
-```
- event.subscribe(settings.web3, contract.populous, 'EventNewCurrency', (callback) =>{
+**Notice: test can be failed because: you dont have enough gas ar not export env variables**
 
-     console.log(1, callback)
+###Directory structure:
+- api - hold all methods for interact with smart contracts, test for this methods and helpers
+- helpers - hold helpers function
+  - get-random-contract-name.js - function for test function that implement logic for interact with ethComm, probably need to move in other place
+  - get-value-from-tx.js - help to get value from contracts response event object, need to add ability to get all event data
+- methods - holds all object methods, can be placed in one file, but separate files much easy for maintenance
+- testsCommon - function for test like createCurrencyTest
+  - create-currency-test.js - function create new currency or return existing, should be use only for tests purpose because
+    violates the one of SOLID principle
+- constants.js - holds some constant values that can be returned from smart contracts
+- EthConnect.js - defines class with constructor and methods assign to it
 
- });
-```
+Why we should use object?
 
-/ Example 2
-```
- var a = event.subscribeAll(settings.web3, contract.populous, (callback) =>{
+- it prevent code duplicate and help to write code faster
 
-     console.log(2, callback)
+###Need to implement
 
- });
-```
+- ability to work with testrpc, network doesn't need unlock account and use http web3 provider
+- ability to get all event Data, get-value-from-tx.js fix
+- probably some directory structure fixes
+- ability to connect to http web3 provider
+- probably need some wiki
+- add lock method
+- maybe add dotenv for easy work
+
+###Examples:
+
+Create Eth Adapter Instance, expect that smart contracts repo cloned near current on one directory level:
+
+-> in this case object will try to get config from environment variables
+-> for export variables you can use dotenv or this command, values are dummy
+-> export ETH_COMM_RCP_URL=ws://localhost:8546 0x24jky5i734i53k4h5i34u53kj45b ETH_COMM_LOCAL_ADDRESS_PASSWORD=password
+
+const ethInst = new EthConnect();
+
+-> in this case object will use provided config, if something missed, it will fallback to environment variables
+
+const ethInst = new EthConnect({
+   ethRPCURL: 'ws://localhost:8546', // dummy for example
+      localAddress = '0x24jky5i734i53k4h5i34u53kj45b', // dummy for example
+      localAddressPassword = 'password', // dummy for example
+});
 
 
-/ Example 3
-```
- populous.getCurrency(connect(network.ropsten), contract.populous, '0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd', 'GBP').then(result => {
-     console.log(result);
- })
- ```
- 
-  Example 4 - dynamic contract (ABI) loading
- ```
-  example 4.1: contract._build('populous', '0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd');
-  example 4.2: contract.populous
-  ```
+All method for interact with smart contracts available under 'api' name space
+
+ethInst.api.populous.getCurrency('EUR')
+
+return '0x7f62B3960D54abE0D161201bb361Ed5F8e419CbB' or throw error
+
+
