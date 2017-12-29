@@ -1,6 +1,5 @@
 {
   "name": "eth-connect",
-
   "version": "1.0.1",
   "description": "Package for reqeusts to smart contracts",
   "main": "index.js",
@@ -10,6 +9,7 @@
     "precommit": "npm run lint && npm run test",
     "prepublish": "npm run lint && npm run test",
     "test": "mocha --compilers js:babel-register \"methods/*.spec.js\"",
+    "test-api": "mocha --compilers js:babel-register \"api/**/*.spec.js\"",
     "start": "babel-node --presets es2015 index.js"
   },
   "author": "Populous",
@@ -36,6 +36,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
     "del": "^2.2.2",
+    "dotenv": "^4.0.0",
     "eslint": "^3.8.0",
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-plugin-import": "^2.8.0",
@@ -50,4 +51,3 @@
   },
   "dependencies": {}
 }
-

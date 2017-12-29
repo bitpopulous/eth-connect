@@ -1,7 +1,5 @@
-import networks from './network.js';
-import * as contract from './contract';
+import networkConfig from './network';
 
-module.exports = {
-    network: networks,
-    contract: contract
-}
+export default {
+  network: networkConfig,
+};

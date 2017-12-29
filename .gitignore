@@ -1,4 +1,4 @@
 .idea
 .vscode
-git status
 node_modules
+.env
