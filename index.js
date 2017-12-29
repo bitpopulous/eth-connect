@@ -10,7 +10,8 @@ import {
 } from './config';
 
 import {
-    populous
+    populous,
+    depositContractsManager
 } from './contract/populous-smartcontracts'
 
 
