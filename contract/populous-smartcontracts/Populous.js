@@ -56,7 +56,7 @@ export default {
         }
         return contractInstance.methods.mintTokens(...Object.values(params)).send({ from: from });
     },
-    destroyTokens: (connect, contract, from currency, amount) => {
+    destroyTokens: (connect, contract, from, currency, amount) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             currency: connect.utils.asciiToHex(currency),
