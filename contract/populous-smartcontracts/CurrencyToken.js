@@ -1,24 +1,31 @@
 export default {
 
-  transferToContract(connect, contract, currencyTokenAddress, params = {
-    toAddress: undefined,
-    amount: undefined,
-    investorId: undefined,
-  }) {
+  transferToContract(connect,
+                     contract,
+                     currencyTokenAddress,
+                     from,
+                     toAddress,
+                     amount,
+                     investorId,) {
     const preparedParams = {
-      ...params,
-      investorId: connect.utils.asciiToHex(params.investorId),
+      toAddress,
+      amount,
+      investorId: connect.utils.asciiToHex(investorId),
     };
 
     const contractInstance = new connect.eth.Contract(contract.abi, currencyTokenAddress);
 
-    return contractInstance.methods.transferToContract(...Object.values(preparedParams));
+    return contractInstance.methods.transferToContract(...Object.values(preparedParams)).send({from});
   },
 
-  balanceOf(connect, contract, currencyTokenAddress, ownerAddress) {
+  balanceOf(connect,
+            contract,
+            currencyTokenAddress,
+            from,
+            ownerAddress) {
     const contractInstance = new connect.eth.Contract(contract.abi, currencyTokenAddress);
 
-    return contractInstance.methods.balanceOf(ownerAddress);
+    return contractInstance.methods.balanceOf(ownerAddress).call({from});
   },
 
 }
