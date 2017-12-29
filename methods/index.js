@@ -3,6 +3,7 @@ import invokeMethod from './invoke-method';
 import processABI from './process-abi';
 import subscribeToEvents from './subscribe-to-events';
 import unlockAccount from './unlock-account';
+import lockAccount from './lock-account';
 import callContractMethod from './call-contract-method';
 import callContractMethodAtAddress from './call-contract-method-at-address';
 import getValueFromContract from './get-value-from-contract';
@@ -14,6 +15,7 @@ export {
   processABI,
   subscribeToEvents,
   unlockAccount,
+  lockAccount,
   callContractMethod,
   callContractMethodAtAddress,
   getValueFromContract,

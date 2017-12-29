@@ -1,12 +1,7 @@
 import bindObject from './helpers/bind-object';
 import populousObject from './methods/populous';
 import crowdsaleObject from './methods/crowdsale';
-
-const apiObject = {};
-
-apiObject.getDepositAddress = function getDepositAddress(ethId) {
-  return this.getValueFromContract('DepositContractsManager', 'getDepositAddress', ethId);
-};
+import depositContractManager from './methods/deposit-contract-manager';
 
 /** Methods with custom logic, need to be implemented in future (populous-ethcomm)
  * deposit - probably already done as
@@ -17,10 +12,11 @@ apiObject.getDepositAddress = function getDepositAddress(ethId) {
  */
 
 function api() {
-  const binded = bindObject.call(this, apiObject);
+  const binded = {};
 
   binded.populous = bindObject.call(this, populousObject);
   binded.crowdsale = bindObject.call(this, crowdsaleObject);
+  binded.depositContractManager = bindObject.call(this, depositContractManager);
 
   return binded;
 }

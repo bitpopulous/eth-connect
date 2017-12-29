@@ -9,7 +9,7 @@
 - run `npm i`, after install object tests will be run
 - run `npm run test-api` - for test reference methods
 
-**Notice: test can be failed because: you dont have enough gas ar not export env variables**
+**Notice: test can be failed because: you dont have enough gas or not export env variables**
 
 ### Directory structure:
 - api - hold all methods for interact with smart contracts, test for this methods and helpers
@@ -34,7 +34,6 @@ Why we should use object?
 - probably some directory structure fixes
 - ability to connect to http web3 provider
 - probably need some wiki
-- add lock method
 - maybe add dotenv for easy work
 
 ### Examples:

@@ -6,6 +6,7 @@ import {
   processABI,
   subscribeToEvents,
   unlockAccount,
+  lockAccount,
   callContractMethod,
   callContractMethodAtAddress,
   getValueFromContract,
@@ -53,6 +54,7 @@ export default class EthConnect {
     this.subscribeToEvents = subscribeToEvents.bind(this);
     this.processABI = processABI.bind(this);
     this.unlockAccount = unlockAccount.bind(this);
+    this.lockAccount = lockAccount.bind(this);
     this.call = unlockAccount.bind(this);
     this.callContractMethod = callContractMethod.bind(this);
     this.callContractMethodAtAddress = callContractMethodAtAddress.bind(this);
