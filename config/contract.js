@@ -1,11 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-
-
-
-
+// TODO: _contractDir - should be changeable
 const _contractDir = "../../populous-smartcontracts/build/contracts";
-
 
 const getABI = (name) => {
   const abiPath = path.join(__dirname, _contractDir, name + '.json');
@@ -15,6 +11,8 @@ const getABI = (name) => {
 
   return contractABI;
 }
+
+// TODO: address - should be dynamic
 
 module.exports = {
   _build: (contractName, contractAddress) => {
@@ -26,5 +24,8 @@ module.exports = {
   populous: {
     abi: getABI('populous'),
     address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
-  }
-}
+  },
+  currencyToken:{
+    abi: getABI('CurrencyToken'),
+  },
+};
