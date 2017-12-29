@@ -19,7 +19,7 @@ export default {
 
     const params = {
       clientId: connect.utils.asciiToHex(clientId),
-      tokenContract,
+      tokenContract: tokenContract,
       receiveCurrency: connect.utils.asciiToHex(receiveCurrency)
     }
 
@@ -35,9 +35,9 @@ export default {
 
     const params = {
       clientId: connect.utils.asciiToHex(clientId),
-      tokenContract,
+      tokenContract: tokenContract,
       receiveCurrency: connect.utils.asciiToHex(receiveCurrency),
-      depositIndex
+      depositIndex: depositIndex
     }
 
     return contractInstance.methods
