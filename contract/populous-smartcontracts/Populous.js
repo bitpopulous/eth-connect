@@ -6,44 +6,56 @@ module.exports = {
 
   //Example, when dealing with constant methods or 'view' methods which only get data
   //returns crowdsale
-  getCurrency: (web3, contract, from, currency) => {
-    const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
+  getCurrency: (connect, contract, from, currency) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+    };
 
     return contractInstance.methods
-      .getCurrency(web3.utils.asciiToHex(currency))
+      .getCurrency(...Object.values(params))
       .call({from: from});
   },
 
-  transfer: (web3, contract, from, to, currency, amount) => {
-    const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
+  transfer: (connect, contract, from, to, currency, amount) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+      from: connect.utils.asciiToHex(from),
+      to: connect.utils.asciiToHex(to),
+      amount,
+    };
 
     return contractInstance.methods
-      .transfer(
-        web3.utils.asciiToHex(currency),
-        web3.utils.asciiToHex(from),
-        web3.utils.asciiToHex(to),
-        amount
-      )
+      .transfer(...Object.values(params))
       .send({from: from});
   },
 
-  getLedgerEntry: (web3, contract, from, currency, accountId) => {
-    const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
+  getLedgerEntry: (connect, contract, from, currency, accountId) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+      accountId: connect.utils.asciiToHex(accountId),
+    };
 
     return contractInstance.methods
-      .getLedgerEntry(
-        web3.utils.asciiToHex(currency),
-        web3.utils.asciiToHex(accountId))
+      .getLedgerEntry(...Object.values(params))
       .call({from: from});
   },
 
-  mintTokens: (web3, contract, from, currency, amount) => {
-    const contractInstance = new web3.eth.Contract(contract.abi, contract.address);
+  mintTokens: (connect, contract, from, currency, amount) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+
+    const params = {
+      currency: connect.utils.asciiToHex(currency),
+      amount,
+    };
 
     return contractInstance.methods
-      .mintTokens(
-        web3.utils.asciiToHex(currency),
-        amount)
+      .mintTokens(...Object.values(params))
       .send({from: from});
   }
 };
