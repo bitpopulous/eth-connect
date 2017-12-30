@@ -9,6 +9,7 @@
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch \"**/*.spec.js\"",
     "prepublish": "npm run lint && npm run test",
     "test": "mocha --compilers js:babel-register \"methods/*.spec.js\"",
+    "test-populous": "mocha --compilers js:babel-register \"contract/**/*.spec.js\"",
     "start": "babel-node --presets es2015 index.js"
   },
   "author": "Populous",
