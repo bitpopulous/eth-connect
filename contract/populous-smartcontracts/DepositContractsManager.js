@@ -5,7 +5,7 @@ export default {
 
     const params = {
       clientId: connect.utils.asciiToHex(clientId)
-    }
+    };
 
     return contractInstance.methods
       .getDepositAddress(...Object.values(params))
