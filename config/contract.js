@@ -33,12 +33,10 @@ module.exports = {
     address: "0x1f7f1b309281772d01027d9a7664a8802495a006",
     transaction,
   },
-  crowdSale: (transaction) => {
-    return {
+  crowdSale: {
       abi: getABI('Crowdsale'),
       address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
-      transaction: transaction
-    }
+      transaction,
   },
   currencyToken: {
     abi: getABI('CurrencyToken'),
