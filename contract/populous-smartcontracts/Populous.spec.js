@@ -7,7 +7,7 @@ let settings = {
   web3: connect(network.ropsten)
 }
 
-let fromAddr = '0x25d603d24a28134998a01e5a6863033262c58fe3',
+let fromAddr = '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35',
   clientExternal = '0x93123461712617b2f828494dbf5355b8a76d6051',
   tokenName = 'GBP Pokens',
   decimalUnits = 3,
@@ -48,7 +48,7 @@ describe('getCurrencySymbol function', () => {
       .then(result => {
         Populous.getCurrencySymbol(settings.web3, contract.populous, fromAddr, result)
           .then(result => {
-            expect(result).to.be.an('object');
+            expect(result).to.exist;
             done();
           })
           .catch(e => e)
@@ -60,18 +60,6 @@ describe('getCurrencySymbol function', () => {
 describe('createCurrency function', () => {
   it('successfully create currency', done => {
     Populous.createCurrency(settings.web3, contract.populous, fromAddr, tokenName, decimalUnits, currencySymbol)
-      .then(result => {
-        expect(result).to.exist;
-        done();
-      })
-      .catch(e => e)
-      .finally(e => expect(e).to.be.undefined);
-  });
-});
-
-describe('tokenFallback function', () => {
-  it('successfully sent data to tokenFallback function', done => {
-    Populous.tokenFallback(settings.web3, contract.populous, fromAddr, decimalUnits, data)
       .then(result => {
         expect(result).to.exist;
         done();
