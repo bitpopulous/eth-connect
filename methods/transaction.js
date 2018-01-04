@@ -1,8 +1,3 @@
-import Web3 from 'web3';
-import {
-    contract
-} from '../config';
-
 module.exports = {
     gasLimit: (connect) => {
         return new Promise((resolve, reject) => {

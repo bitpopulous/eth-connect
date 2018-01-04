@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import transaction from '../methods';
+import {
+  transaction
+} from './../methods';
 
 // TODO: _contractDir - should be changeable
 const _contractDir = "../../populous-smartcontracts/build/contracts";
@@ -15,13 +17,12 @@ const getABI = (name) => {
 }
 
 // TODO: address - should be dynamic
-
 module.exports = {
   _build: (contractName, contractAddress) => {
     return {
       abi: getABI(contractName),
       address: contractAddress,
-      transaction: transaction
+      transaction: Object.assign({}, transaction)
     }
   },
   populous: {
