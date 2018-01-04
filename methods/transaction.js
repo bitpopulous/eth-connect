@@ -5,9 +5,17 @@ import {
 
 module.exports = {
     gasLimit: (connect) => {
-        return new Promise((resolve, reject) => {
-           resolve(3000000);
-        })
+        return Promise.resolve(3000000);
+        // return new Promise((resolve, reject) => {
+        //     connect.eth.getBlock('latest')
+        //         .then(block => {
+        //             const result = block.gasLimit;
+        //             resolve(result)
+        //         })
+        //         .catch(e => {
+        //             reject(new Error(e));
+        //         })
+        // })
 
     },
     difficulty: (connect) => {
