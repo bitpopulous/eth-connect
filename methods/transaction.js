@@ -6,14 +6,7 @@ import {
 module.exports = {
     gasLimit: (connect) => {
         return new Promise((resolve, reject) => {
-            connect.eth.getBlock('latest')
-                .then(block => {
-                    const result = block.gasLimit;
-                    resolve(result)
-                })
-                .catch(e => {
-                    reject(new Error(e));
-                })
+           resolve(3000000);
         })
 
     },

@@ -38,7 +38,7 @@ var settings = {
 //     console.log('create currency: ', result);
 // });
 // account.unlock(settings.web3, )
-populous.createCurrency(settings.web3, contract.populous(transaction), '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35', 'CCCzs Token', 8, 'CCsCz').then(result => {
+populous.createCurrency(settings.web3, contract.populous, '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35', 'CCCzs Token', 8, 'CCsCz').then(result => {
     console.log('Wisdom: ', result);
 });
 
