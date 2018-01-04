@@ -21,15 +21,18 @@ module.exports = {
       address: contractAddress
     }
   },
-  populous: {
-    abi: getABI('Populous'),
-    address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
+  populous: (transaction) => {
+    return {
+      abi: getABI('Populous'),
+      address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
+      transaction: transaction
+    }
   },
   depositContractsManager: {
     abi: getABI('DepositContractsManager'),
-    address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
+    address: "0x1f7f1b309281772d01027d9a7664a8802495a006"
   },
-  currencyToken:{
+  currencyToken: {
     abi: getABI('CurrencyToken'),
     address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
   },
