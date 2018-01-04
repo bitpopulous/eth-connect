@@ -28,9 +28,18 @@ module.exports = {
       transaction: transaction
     }
   },
-  depositContractsManager: {
-    abi: getABI('DepositContractsManager'),
-    address: "0x1f7f1b309281772d01027d9a7664a8802495a006"
+  crowdSale: (transaction) => {
+    return {
+      abi: getABI('Crowdsale'),
+      address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
+      transaction: transaction
+    }
+  },
+  depositContractsManager: (transaction) => {
+    return {
+      abi: getABI('DepositContractsManager'),
+      address: "0x1f7f1b309281772d01027d9a7664a8802495a006"
+    }
   },
   currencyToken: {
     abi: getABI('CurrencyToken'),

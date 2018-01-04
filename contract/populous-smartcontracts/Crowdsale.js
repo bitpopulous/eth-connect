@@ -3,21 +3,27 @@ export default {
   checkNoBids: (connect, contract, from) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    return contractInstance.methods
-      .checkNoBids()
-      .send({
-        from: from
-      });
+    return contract.transaction.gasLimit(connect).then(limit => {
+      return contractInstance.methods
+        .checkNoBids()
+        .send({
+          from: from,
+          gas: limit
+        });
+    })
   },
 
   checkDeadline: (connect, contract, from) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    return contractInstance.methods
-      .checkDeadline()
-      .send({
-        from: from
-      });
+    return contract.transaction.gasLimit(connect).then(limit => {
+      return contractInstance.methods
+        .checkDeadline()
+        .send({
+          from: from,
+          gas: limit
+        });
+    });
   },
 
   borrowerChooseWinner: (connect, contract, from, groupIndex) => {
@@ -27,11 +33,14 @@ export default {
       groupIndex: groupIndex
     };
 
-    return contractInstance.methods
-      .borrowerChooseWinner(...Object.values(params))
-      .send({
-        from: from
-      });
+    return contract.transaction.gasLimit(connect).then(limit => {
+      return contractInstance.methods
+        .borrowerChooseWinner(...Object.values(params))
+        .send({
+          from: from,
+          gas: limit
+        });
+    });
   },
 
   getStatus: (connect, contract, from) => {
