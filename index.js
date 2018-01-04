@@ -12,6 +12,8 @@ import {
 
 import {
     populous,
+    depositContractsManager,
+    crowdSale,
     currencyToken
 } from './contract/populous-smartcontracts'
 
