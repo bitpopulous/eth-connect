@@ -1,5 +1,5 @@
 export default {
-    Populous(connect, contract, from, accessManager) {
+    Populous: (connect, contract, from, accessManager) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             accessManager: accessManager
@@ -51,10 +51,10 @@ export default {
         })
      
     },
-    tokenFallback: (connect, contract, from, fromAddr, amount, data) => {
+    tokenFallback: (connect, contract, from, amount, data) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
-            from: fromAddr,
+            from: from,
             amount: amount,
             data: connect.utils.asciiToHex(data)
         }
@@ -106,7 +106,7 @@ export default {
             });
         });
     },
-    transfer(connect, contract, from, currency, fromID, toID, amount) {
+    transfer: (connect, contract, from, currency, fromID, toID, amount) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             currency: connect.utils.asciiToHex(currency),
@@ -121,7 +121,7 @@ export default {
             });
         });
     },
-    getLedgerEntry(connect, contract, from, currency, accountId) {
+    getLedgerEntry: (connect, contract, from, currency, accountId) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             currency: connect.utils.asciiToHex(currency),
@@ -131,7 +131,7 @@ export default {
             from: from
         });
     },
-    getCurrency(connect, contract, from, currency) {
+    getCurrency: (connect, contract, from, currency) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             currency: connect.utils.asciiToHex(currency)
@@ -140,7 +140,7 @@ export default {
             from: from
         });
     },
-    getCurrencySymbol(connect, contract, from, currency) {
+    getCurrencySymbol: (connect, contract, from, currency) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             currency: currency
