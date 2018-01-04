@@ -14,7 +14,11 @@ export default {
 
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    return contractInstance.methods.transferToContract(...Object.values(preparedParams)).send({from});
+    return contract.transaction.gasLimit(connect)
+      .then(limit =>
+        contractInstance.methods.transferToContract(...Object.values(preparedParams))
+          .send({from, gas: limit,})
+      );
   },
 
   balanceOf(connect,
@@ -23,7 +27,14 @@ export default {
             ownerAddress) {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    return contractInstance.methods.balanceOf(ownerAddress).call({from});
+    return contractInstance.methods.balanceOf(ownerAddress).call({from})
+      .then((result) => {
+        if (typeof result === 'object') {
+          throw new Error('Failed transaction');
+        }
+
+        return Number.parseFloat(result);
+      });
   },
 
 }

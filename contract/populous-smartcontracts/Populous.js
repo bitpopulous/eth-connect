@@ -1,3 +1,5 @@
+import constatns from '../constants';
+
 export default {
     Populous(connect, contract, from, accessManager) {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
@@ -27,7 +29,7 @@ export default {
         });
     },
     createCurrency: (connect, contract, from, tokenName, decimalUnits, tokenSymbol) => {
-        console.log('1')
+        // console.log('1')
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             tokenName: connect.utils.asciiToHex(tokenName),
@@ -35,10 +37,11 @@ export default {
             tokenSymbol: connect.utils.asciiToHex(tokenSymbol)
         }
 
-       return contract.transaction.gasLimit(connect).then(limit => {
+       return contract.transaction.gasLimit(connect)
+         .then(limit => {
             return contractInstance.methods.createCurrency(...Object.values(params)).send({ from: from, gas: limit });
         })
-     
+
     },
     tokenFallback: (connect, contract, from, amount, data) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
@@ -59,19 +62,31 @@ export default {
             currency: connect.utils.asciiToHex(currency),
             amount: amount
         }
-        return contractInstance.methods.withdraw(...Object.values(params)).send({
-            from: from
-        });
+        return contract.transaction.gasLimit(connect)
+          .then(limit => contractInstance.methods.withdraw(...Object.values(params)).send({
+            from: from,
+            gas: limit,
+          }));
     },
     mintTokens: (connect, contract, from, currency, amount) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             currency: connect.utils.asciiToHex(currency),
             amount: amount
-        }
-        return contractInstance.methods.mintTokens(...Object.values(params)).send({
-            from: from
+        };
+
+      return contract.transaction.gasLimit(connect)
+        .then(limit =>
+          contractInstance.methods
+          .mintTokens(...Object.values(params))
+          .send({from: from, gas: limit,})
+        )
+        .then((mintTokensResult) => {
+          if (mintTokensResult.status === constatns.statusMap.fail) {
+            throw new Error('Failed transaction');
+          }
         });
+
     },
     destroyTokens: (connect, contract, from, currency, amount) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
@@ -91,19 +106,30 @@ export default {
             toID: connect.utils.asciiToHex(toID),
             amount: amount
         }
-        return contractInstance.methods.transfer(...Object.values(params)).send({
-            from: from
-        });
+      return contract.transaction.gasLimit(connect)
+        .then(limit => contractInstance.methods.transfer(...Object.values(params)).send({
+
+            from: from,
+            gas: limit,
+          })
+        );
     },
     getLedgerEntry(connect, contract, from, currency, accountId) {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
             currency: connect.utils.asciiToHex(currency),
             accountId: connect.utils.asciiToHex(accountId)
-        }
-        return contractInstance.methods.getLedgerEntry(...Object.values(params)).call({
-            from: from
-        });
+        };
+
+        return contractInstance.methods.getLedgerEntry(...Object.values(params))
+          .call({ from: from })
+          .then((ledgerAmount) => {
+            if (typeof result === 'object') {
+              throw new Error('Failed transaction');
+            }
+
+            return Number.parseFloat(ledgerAmount);
+          });
     },
     getCurrency(connect, contract, from, currency) {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
