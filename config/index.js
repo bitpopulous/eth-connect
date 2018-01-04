@@ -1,3 +1,4 @@
+import './dotenvConfig';
 import networks from './network.js';
 import * as contract from './contract';
 
