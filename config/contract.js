@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import {transaction} from "../methods";
+import {transaction} from '../methods';
 // TODO: _contractDir - should be changeable
 const _contractDir = "../../populous-smartcontracts/build/contracts";
 
