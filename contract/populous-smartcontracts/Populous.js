@@ -99,6 +99,7 @@ export default {
           if (mintTokensResult.status === constatns.statusMap.fail) {
             throw new Error('Failed transaction');
           }
+          return mintTokensResult;
         });
 
     },
@@ -166,24 +167,35 @@ export default {
             from: from
         });
     },
-    createCrowdsale: (connect, contract, from, currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount, fundingGoal, platformTaxPercent, signedDocumentIPFSHash) => {
+    createCrowdsale: (connect, contract, from,
+                      currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount,
+                      fundingGoal, platformTaxPercent, signedDocumentIPFSHash) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
         const params = {
-            currencySymbol: connect.utils.asciiToHex(currencySymbol),
-            borrowerId: connect.utils.asciiToHex(borrowerId),
-            invoiceId: connect.utils.asciiToHex(invoiceId),
+            currencySymbol: connect.utils.toHex(currencySymbol),
+            borrowerId: connect.utils.toHex(borrowerId),
+            invoiceId: connect.utils.toHex(invoiceId),
             invoiceNumber: invoiceNumber,
             invoiceAmount: invoiceAmount,
             fundingGoal: fundingGoal,
             platformTaxPercent: platformTaxPercent,
             signedDocumentIPFSHash: signedDocumentIPFSHash
         }
-        return contract.transaction.gasLimit(connect).then(limit => {
-            return contractInstance.methods.createCrowdsale(...Object.values(params)).send({
+        return contract.transaction.gasLimit(connect)
+          .then(limit => {
+            return contractInstance.methods.createCrowdsale(...Object.values(params))
+              .send({
                 from: from, 
                 gas: limit
             });
-        });
+        })
+          .then((result) => {
+            if (result.status === constatns.statusMap.fail) {
+              throw new Error('Failed transaction');
+            }
+
+            return result.events.EventNewCrowdsale.returnValues.crowdsale
+          });
     },
     closeCrowdsale: (connect, contract, from, crowdsaleAddr) => {
         const contractInstance = new connect.eth.Contract(contract.abi, contract.address);

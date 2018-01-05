@@ -30,16 +30,18 @@ describe('The getDepositAddress method', () => {
 });
 
 describe('The getActiveDepositList method', () => {
-  it('successfully gets deposit list', done => {
+  it('successfully gets deposit list', function(done) {
+    this.timeout(15 * 60 * 1000); // 15 min
+
     Populous.deposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.depositContractsManager.address, settings.receiveCurrency, settings.depositAmount, settings.receiveAmount)
       .then(() => {
-        DepositContractsManager.getActiveDepositList(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.depositContractsManager.address, settings.receiveCurrency)
-          .then((deposit) => {
-            console.log('active deposit list: ', deposit);
-            expect(deposit[1]).to.equal(settings.depositAmount);
-            expect(deposit[2]).to.equal(settings.receiveAmount);
-            done();
-          });
+        return DepositContractsManager.getActiveDepositList(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.depositContractsManager.address, settings.receiveCurrency)
+      })
+      .then((deposit) => {
+        console.log('active deposit list: ', deposit);
+        expect(deposit[1]).to.equal(settings.depositAmount);
+        expect(deposit[2]).to.equal(settings.receiveAmount);
+        done();
       })
       .catch(e => {
         done(e);
