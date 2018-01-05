@@ -1,9 +1,6 @@
 module.exports = {
     gasLimit: (connect) => {
-        return new Promise((resolve, reject) => {
-           resolve(4700000);
-        })
-
+        return Promise.resolve(3000000);
     },
     difficulty: (connect) => {
         return new Promise((resolve, reject) => {
