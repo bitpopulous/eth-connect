@@ -2,7 +2,6 @@ export default {
 
   checkNoBids: (connect, contract, from) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-
     return contract.transaction.gasLimit(connect).then(limit => {
       return contractInstance.methods
         .checkNoBids()
