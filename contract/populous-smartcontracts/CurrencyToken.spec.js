@@ -30,21 +30,15 @@ describe('Currency Token contract', () => {
   it('should get currency token address', function (done) {
     this.timeout(15 * 60 * 1000); // 15 min
 
-    unlock(settings.web3, network.ropsten.ethAddress, network.ropsten.ethAddressPassword)
-      .then((unlockResult) => {
-
-        createCurrencyTest(
+    createCurrencyTest(
           settings.web3, PopulousContract, network,
           'EUR Pokens', 3, 'EUR')
-          .then(() => {
-            currencyTokenContract = contract._build('CurrencyToken', createdCurrencies.EUR);
-            done();
-          })
-          .catch(done)
-
-      });
+      .then(() => {
+        currencyTokenContract = contract._build('CurrencyToken', createdCurrencies.EUR);
+        done();
+      })
+      .catch(done);
   });
-
 
   describe('CurrencyToken functions', () => {
 
