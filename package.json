@@ -1,6 +1,6 @@
 {
   "name": "@populous/eth-connect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Package for reqeusts to smart contracts",
   "main": "index.js",
   "scripts": {
