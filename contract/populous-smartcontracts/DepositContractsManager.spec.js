@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import Populous from './Populous';
 import DepositContractsManager from './DepositContractsManager';
+import PopulousToken from './PopulousToken';
 import { connect } from '../../methods/connect';
 import { network, contract } from '../../config';
 
@@ -9,9 +10,28 @@ let settings = {
     from: '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35',
     receiveCurrency: 'GBP',
     depositAmount: 200,
-    receiveAmount: 190,
-    INVESTOR1_ACC: 'A'
+    receiveAmount: 150,
+    INVESTOR1_ACC: 'A',
+    faucetAmount: 200,
 };
+
+
+describe('The ppt faucet method', () => {
+  it('successfully gets ppt from faucet deposit address', done => {
+    PopulousToken.faucet(settings.web3, contract.populousToken, settings.from, settings.faucetAmount)
+      .then((faucet) => {
+        console.log('PPT faucet: ', faucet);
+        expect(faucet).to.be.a('string');
+        //expect(address).to.have.lengthOf(42);
+        done();
+      })
+      .catch(e => {
+        done(e);
+      })
+      .finally(e => expect(e).to.be.undefined);
+  });
+});
+
 
 describe('The getDepositAddress method', () => {
   it('successfully gets deposit address', done => {

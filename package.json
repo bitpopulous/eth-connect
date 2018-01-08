@@ -9,11 +9,7 @@
     "prepublish": "npm run lint && npm run test",
     "test": "mocha --compilers js:babel-register \"methods/*.spec.js\"",
     "test-populous": "mocha --compilers js:babel-register \"contract/**/*.spec.js\"",
-<<<<<<< HEAD
-    "test-deposit": "mocha --compilers js:babel-register \"contract/**/DepositContractsManager.spec.js\"",
-=======
     "test-deposit": "mocha --compilers js:babel-register \"contract/populous-smartcontracts/DepositContractsManager.spec.js\"",
->>>>>>> 268eeeea29ac19ef95413598e389a2703051ce43
     "start": "babel-node --presets es2015 index.js"
   },
   "author": "Populous",

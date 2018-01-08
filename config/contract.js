@@ -48,6 +48,8 @@ module.exports = {
     transaction: transaction,
   },
   populousToken: {
-    address: '0x0553adb56fed005d71c615fa480e278c78ea65ec'
+    abi: getABI('PopulousToken'),
+    address: '0x0553adb56fed005d71c615fa480e278c78ea65ec',
+    transaction: transaction,
   }
 };
