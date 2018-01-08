@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { expect, assert } from 'chai';
 import Populous from './Populous';
 import DepositContractsManager from './DepositContractsManager';
 import PopulousToken from './PopulousToken';
@@ -16,13 +16,49 @@ let settings = {
 };
 
 
-describe('The ppt faucet method', () => {
-  it('successfully gets ppt from faucet deposit address', done => {
+describe('The ppt faucet and balanceOf methods', () => {
+  it('successfully gets ppt from faucet to platform account', function(done) {
+    this.timeout(15 * 60 * 1000); // 15 min
     PopulousToken.faucet(settings.web3, contract.populousToken, settings.from, settings.faucetAmount)
       .then((faucet) => {
         console.log('PPT faucet: ', faucet);
-        expect(faucet).to.be.a('string');
-        //expect(address).to.have.lengthOf(42);
+        expect(faucet).to.exist;
+        
+        return PopulousToken.balanceOf(settings.web3, contract.populousToken, network.ropsten.ethAddress, settings.from)
+      })
+      .then((faucetValue) => {
+        console.log('ppt balance: ', faucetValue);
+        assert.isAtLeast(faucetValue, settings.depositAmount, "Failed getting ppt from faucet");
+        done();
+      })
+      .catch(e => {
+        done(e);
+      })
+      .finally(e => expect(e).to.be.undefined);
+  });
+});
+
+
+
+describe('The ppt transferToAddress method', () => {
+  it('successfully transfers ppt from platform balance to deposit contract address', function(done) {
+    this.timeout(15 * 60 * 1000); // 15 min
+
+    DepositContractsManager.getDepositAddress(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC)
+      .then((depositAddress) => {
+        expect(depositAddress).to.be.a('string');
+        expect(depositAddress).to.have.lengthOf(42);
+        global.depositAddress = depositAddress;
+        return PopulousToken.transferToAddress(settings.web3, contract.populousToken, settings.from, depositAddress, settings.depositAmount)
+      })
+      .then((pptTransfer) => {
+        console.log('PPT transfer: ', pptTransfer);
+        expect(pptTransfer).to.exist;
+        return PopulousToken.balanceOf(settings.web3, contract.populousToken, settings.from, global.depositAddress)
+      })
+      .then((depositBalance) => {
+        console.log('deposit address ppt balance: ', depositBalance);
+        assert.isAtLeast(depositBalance, settings.depositAmount, "Failed getting ppt deposit amount from platform");
         done();
       })
       .catch(e => {
@@ -49,11 +85,14 @@ describe('The getDepositAddress method', () => {
   });
 });
 
+
+
+
 describe('The getActiveDepositList method', () => {
   it('successfully gets deposit list', function(done) {
     this.timeout(15 * 60 * 1000); // 15 min
 
-    Populous.deposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, settings.depositAmount, settings.receiveAmount)
+    Populous.deposit(settings.web3, contract.populous, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, settings.depositAmount, settings.receiveAmount)
       .then((result) => {
         console.log('populous deposit result: ');
         console.log(result);
@@ -61,8 +100,10 @@ describe('The getActiveDepositList method', () => {
       })
       .then((deposit) => {
         console.log('active deposit list: ', deposit);
-        expect(deposit[1]).to.equal(settings.depositAmount);
-        expect(deposit[2]).to.equal(settings.receiveAmount);
+        assert.isAtLeast(parseInt(deposit[1]), settings.depositAmount, "Failed getting correct ppt deposit amount");
+        assert.isAtLeast(parseInt(deposit[2]), settings.receiveAmount, "Failed getting correct poken receive amount");
+        //expect(deposit[1]).to.equal(settings.depositAmount);
+        //expect(deposit[2]).to.equal(settings.receiveAmount);
         done();
       })
       .catch(e => {
@@ -77,8 +118,8 @@ describe('The getActiveDeposit method', () => {
     DepositContractsManager.getActiveDeposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, 0)
       .then((deposit) => {
         console.log('active deposit: ', deposit);
-        expect(deposit[0]).to.equal(settings.depositAmount);
-        expect(deposit[1]).to.equal(settings.receiveAmount);
+        expect(parseInt(deposit[0])).to.equal(settings.depositAmount);
+        expect(parseInt(deposit[1])).to.equal(settings.receiveAmount);
         expect(deposit[2]).to.be.false;
         done();
       })
