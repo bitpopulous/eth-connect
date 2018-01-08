@@ -1,7 +1,7 @@
 import {connect} from './connect';
 import * as event from './event';
 import * as account from './account';
-import transaction from './transaction';
+import * as transaction from './transaction';
 
 module.exports = {
     connect: connect,

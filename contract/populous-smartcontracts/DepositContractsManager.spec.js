@@ -30,16 +30,20 @@ describe('The getDepositAddress method', () => {
 });
 
 describe('The getActiveDepositList method', () => {
-  it('successfully gets deposit list', done => {
-    Populous.deposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.depositContractsManager.address, settings.receiveCurrency, settings.depositAmount, settings.receiveAmount)
-      .then(() => {
-        DepositContractsManager.getActiveDepositList(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.depositContractsManager.address, settings.receiveCurrency)
-          .then((deposit) => {
-            console.log('active deposit list: ', deposit);
-            expect(deposit[1]).to.equal(settings.depositAmount);
-            expect(deposit[2]).to.equal(settings.receiveAmount);
-            done();
-          });
+  it('successfully gets deposit list', function(done) {
+    this.timeout(15 * 60 * 1000); // 15 min
+
+    Populous.deposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, settings.depositAmount, settings.receiveAmount)
+      .then((result) => {
+        console.log('populous deposit result: ');
+        console.log(result);
+        return DepositContractsManager.getActiveDepositList(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency)
+      })
+      .then((deposit) => {
+        console.log('active deposit list: ', deposit);
+        expect(deposit[1]).to.equal(settings.depositAmount);
+        expect(deposit[2]).to.equal(settings.receiveAmount);
+        done();
       })
       .catch(e => {
         done(e);
@@ -50,7 +54,7 @@ describe('The getActiveDepositList method', () => {
 
 describe('The getActiveDeposit method', () => {
   it('successfully gets active deposit', done => {
-    DepositContractsManager.getActiveDeposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.depositContractsManager.address, settings.receiveCurrency, 0)
+    DepositContractsManager.getActiveDeposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, 0)
       .then((deposit) => {
         console.log('active deposit: ', deposit);
         expect(deposit[0]).to.equal(settings.depositAmount);

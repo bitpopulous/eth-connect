@@ -1,5 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import {
+  transaction
+} from './../methods';
+
 // TODO: _contractDir - should be changeable
 const _contractDir = "../../populous-smartcontracts/build/contracts";
 
@@ -18,31 +22,32 @@ module.exports = {
   _build: (contractName, contractAddress) => {
     return {
       abi: getABI(contractName),
-      address: contractAddress
+      address: contractAddress,
+      transaction: Object.assign({}, transaction)
     }
   },
-  populous: (transaction) => {
-    return {
-      abi: getABI('Populous'),
-      address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
-      transaction: transaction
-    }
+  populous: {
+    abi: getABI('Populous'),
+    address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
+    transaction: transaction,
+    pptAddress: "0x93123461712617b2f828494dbf5355b8a76d6051"
   },
-  crowdSale: (transaction) => {
-    return {
-      abi: getABI('Crowdsale'),
-      address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
-      transaction: transaction
-    }
+  depositContractsManager: {
+    abi: getABI('DepositContractsManager'),
+    address: "0x1f7f1b309281772d01027d9a7664a8802495a006",
+    transaction: transaction,
   },
-  depositContractsManager: (transaction) => {
-    return {
-      abi: getABI('DepositContractsManager'),
-      address: "0x1f7f1b309281772d01027d9a7664a8802495a006"
-    }
+  crowdSale: {
+    abi: getABI('Crowdsale'),
+    address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
+    transaction: transaction,
   },
   currencyToken: {
     abi: getABI('CurrencyToken'),
-    address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d"
+    address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d",
+    transaction: transaction,
   },
+  populousToken: {
+    address: '0x0553adb56fed005d71c615fa480e278c78ea65ec'
+  }
 };

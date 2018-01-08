@@ -2,8 +2,7 @@ import {
     account,
     connect,
     event,
-    method,
-    transaction
+    method
 } from './methods';
 import {
     network,
@@ -38,9 +37,9 @@ var settings = {
 //     console.log('create currency: ', result);
 // });
 // account.unlock(settings.web3, )
-populous.createCurrency(settings.web3, contract.populous(transaction), '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35', 'CCCzs Token', 8, 'CCsCz').then(result => {
-    console.log('Wisdom: ', result);
-});
+// populous.createCurrency(settings.web3, contract.populous, '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35', 'CCCszs Token', 8, 'CCssdCz').then(result => {
+//     console.log('Wisdom: ', result);
+// });
 
 
 // populous.destroyTokens(settings.web3, contract.populous, '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35','CCC', 400).then(result => {
@@ -48,9 +47,9 @@ populous.createCurrency(settings.web3, contract.populous(transaction), '0xdb09c9
 // });
 
 
-// populous.createCurrency(settings.web3, contract.populous, '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35', 'CCC Dollars', 8, 'CCC');/*.then(result => {
-//    // console.log('create currency: ',result);
-// });*/
+// populous.createCurrency(settings.web3, contract.populous, '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35', 'CCcC Dollars', 8, 'CCccccC').then(result => {
+//     console.log('create currency: ', result);
+// });
 
 
 // populous.getCurrency(settings.web3, contract.populous, '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35','CCC').then(result => {
@@ -67,3 +66,32 @@ populous.createCurrency(settings.web3, contract.populous(transaction), '0xdb09c9
 // instance.methods.getCurrency(settings.web3.utils.asciiToHex('GBP'), '0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef').call({ from: from }).then(r => {
 //     console.log(r);
 // })
+//
+
+
+let fromAddr = '0xdb09c99a80254e6821640b8a5c21c7366cf8ff35',
+    clientExternal = '0x93123461712617b2f828494dbf5355b8a76d6051',
+    tokenName = 'GBP Pokens',
+    decimalUnits = 3,
+    fromId = 'Populous',
+    clientId = 'A',
+    amount = 190,
+    currencySymbol = 'CCC',
+    data = '',
+    crowdsale;
+
+let borrowerId = "B",
+    invoiceId = "#8889",
+    invoiceNumber = "#8889",
+    invoiceAmount = 200,
+    fundingGoal = 190,
+    platformTaxPercent = 1,
+    signedDocumentIPFSHash = "ipfs";
+
+populous.createCrowdsale(settings.web3, contract.populous, fromAddr, currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount, fundingGoal, platformTaxPercent, signedDocumentIPFSHash)
+    .then(result => {
+       
+        console.log(result)
+    })
+    .catch(e => {console.log(e)})
+    .finally(e => {console.log(e)})
