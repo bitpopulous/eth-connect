@@ -130,7 +130,7 @@ describe('createCrowdsale function', () => {
     this.timeout(15 * 60 * 1000); // 15 min
     let borrowerId = "B",
       invoiceId = "8888",
-      invoiceNumber = "8888",
+      invoiceNumber = "8888_" + Date.now(),
       invoiceAmount = 200, 
       fundingGoal = 190, 
       platformTaxPercent = 1, 

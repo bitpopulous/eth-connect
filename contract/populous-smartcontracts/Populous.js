@@ -1,4 +1,4 @@
-import constatns from '../constants';
+import constants from '../constants';
 
 export default {
     Populous: (connect, contract, from, accessManager) => {
@@ -96,7 +96,7 @@ export default {
           .send({from: from, gas: limit,})
         )
         .then((mintTokensResult) => {
-          if (mintTokensResult.status === constatns.statusMap.fail) {
+          if (mintTokensResult.status === constants.statusMap.fail) {
             throw new Error('Failed transaction');
           }
           return mintTokensResult;
@@ -190,7 +190,7 @@ export default {
             });
         })
           .then((result) => {
-            if (result.status === constatns.statusMap.fail) {
+            if (result.status === constants.statusMap.fail) {
               throw new Error('Failed transaction');
             }
 

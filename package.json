@@ -1,6 +1,6 @@
 {
-  "name": "eth-connect",
-  "version": "1.0.1",
+  "name": "@populous/eth-connect",
+  "version": "1.0.2",
   "description": "Package for reqeusts to smart contracts",
   "main": "index.js",
   "scripts": {
@@ -49,5 +49,13 @@
     "sinon": "^2.4.1",
     "web3": "^1.0.0-beta.27"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitpopulous/eth-connect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bitpopulous/eth-connect/issues"
+  },
+  "homepage": "https://github.com/bitpopulous/eth-connect#readme"
 }
