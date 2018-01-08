@@ -102,8 +102,6 @@ describe('The getActiveDepositList method', () => {
         console.log('active deposit list: ', deposit);
         assert.isAtLeast(parseInt(deposit[1]), settings.depositAmount, "Failed getting correct ppt deposit amount");
         assert.isAtLeast(parseInt(deposit[2]), settings.receiveAmount, "Failed getting correct poken receive amount");
-        //expect(deposit[1]).to.equal(settings.depositAmount);
-        //expect(deposit[2]).to.equal(settings.receiveAmount);
         done();
       })
       .catch(e => {
