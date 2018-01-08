@@ -27,9 +27,10 @@ module.exports = {
     }
   },
   populous: {
-      abi: getABI('Populous'),
-      address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
+    abi: getABI('Populous'),
+    address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
     transaction: transaction,
+    pptAddress: "0x93123461712617b2f828494dbf5355b8a76d6051"
   },
   depositContractsManager: {
     abi: getABI('DepositContractsManager'),
@@ -37,8 +38,8 @@ module.exports = {
     transaction: transaction,
   },
   crowdSale: {
-      abi: getABI('Crowdsale'),
-      address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
+    abi: getABI('Crowdsale'),
+    address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
     transaction: transaction,
   },
   currencyToken: {
@@ -46,4 +47,7 @@ module.exports = {
     address: "0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d",
     transaction: transaction,
   },
+  populousToken: {
+    address: '0x0553adb56fed005d71c615fa480e278c78ea65ec'
+  }
 };
