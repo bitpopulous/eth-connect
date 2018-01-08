@@ -3,7 +3,7 @@ import depositContractsManager from './DepositContractsManager';
 import currencyToken from "./CurrencyToken";
 import crowdSale from "./Crowdsale";
 
-module.exports = {
+export default {
   populous,
   currencyToken,
   depositContractsManager,
