@@ -6,10 +6,11 @@
   "scripts": {
     "lint": "eslint src test tools",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch \"src/**/*.spec.js\"",
-    "prepublish": "npm run lint && npm run test",
+    "prepublish": "npm run lint && npm run test && npm run build",
     "test": "mocha --compilers js:babel-register \"src/methods/*.spec.js\"",
     "test-populous": "mocha --compilers js:babel-register \"src/contract/**/*.spec.js\"",
-    "start": "babel-node --presets es2015 index.js"
+    "start": "babel-node --presets es2015 index.js",
+    "build": "node tools/build"
   },
   "author": "Populous",
   "license": "ISC",
