@@ -1,9 +1,19 @@
 import methods from './methods/index';
 import config from './config/index';
 
-import smartContracts from './contract/populous-smartcontracts/index'
+import smartContracts from './contract/populous-smartcontracts'
 
-console.log(smartContracts.populous.getCurrency());
+/**
+ * Replaced with bound contracts
+ *
+import {
+    populous,
+    depositContractsManager,
+    crowdSale,
+    currencyToken
+} from './contract/populous-smartcontracts'
+ */
+
 export default {
     methods: {
         account: methods.account,
@@ -17,4 +27,16 @@ export default {
     contracts: {
       ...smartContracts,
     }
+
+  /**
+   * Replaced with bound contracts for encapsulation and simpler usage in the platforms
+   *
+  contracts: {
+    populous: populous,
+    depositContractsManager: depositContractsManager,
+    crowdSale: crowdSale,
+    currencyToken: currencyToken
+  }
+
+   */
 }

@@ -7,7 +7,7 @@ import config from "../../config/index";
 
 const connectInst = connect(config.network.ropsten);
 
-const bindedContracts = {
+const boundContracts = {
   populous,
   currencyToken,
   depositContractsManager,
@@ -15,12 +15,12 @@ const bindedContracts = {
 };
 
 function prepareEthMethods() {
-  for (const contract in bindedContracts) {
-    const contractMethods = bindedContracts[contract];
+  for (const contract in boundContracts) {
+    const contractMethods = boundContracts[contract];
     for (const method in contractMethods) {
       if (contractMethods.hasOwnProperty(method)) {
-        bindedContracts[contract][method] = contractMethods[method]
-          .bind(bindedContracts[contract], connectInst, config.contract[contract], config.network.ropsten.ethAddress);
+        boundContracts[contract][method] = contractMethods[method]
+          .bind(boundContracts[contract], connectInst, config.contract[contract], config.network.ropsten.ethAddress);
       }
     }
   }
@@ -28,4 +28,4 @@ function prepareEthMethods() {
 
 prepareEthMethods();
 
-export default bindedContracts;
+export default boundContracts;
