@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import account from './account';
+import * as account from './account';
 import {connect} from './connect';
 import { network } from '../config';
 

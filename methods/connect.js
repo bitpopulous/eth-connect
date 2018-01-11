@@ -6,8 +6,8 @@ import Web3 from 'web3';
  * @param  netwrok network settings { address: '', port: ''}
  * @return      an instance of Web3.
  */
-
-export function connect (network) {
+module.exports = {
+  connect: (network) => {
     let web3;
 
     if (network.protocol === 'http') {
@@ -20,3 +20,4 @@ export function connect (network) {
     return web3;
 
   }
+}

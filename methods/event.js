@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     subscribe: (connect, contract, eventName, callback) => {
 
         var contractInstance = new connect.eth.Contract(contract.abi, contract.address);
