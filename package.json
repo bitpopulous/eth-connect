@@ -10,7 +10,7 @@
     "test": "mocha --compilers js:babel-register \"src/methods/*.spec.js\"",
     "test-populous": "mocha --compilers js:babel-register \"src/contract/**/*.spec.js\"",
     "test-deposit": "mocha --compilers js:babel-register \"src/contract/populous-smartcontracts/DepositContractsManager.spec.js\"",
-    "start": "babel-node --presets es2015 index.js",
+    "start": "babel-node --presets es2015 src/index.js",
     "build": "node tools/build"
   },
   "author": "Populous",

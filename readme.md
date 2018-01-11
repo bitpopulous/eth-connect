@@ -31,7 +31,7 @@ step 1, connect to network. takes network
 
 / Example 3
 ```
- populous.getCurrency(connect(network.ropsten), contract.populous, '0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd', 'GBP').then(result => {
+ populous.getCurrency('GBP').then(result => {
      console.log(result);
  })
  ```

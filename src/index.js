@@ -3,7 +3,7 @@ import config from './config/index';
 
 import smartContracts from './contract/populous-smartcontracts/index'
 
-
+console.log(smartContracts.populous.getCurrency());
 export default {
     methods: {
         account: methods.account,
@@ -15,9 +15,6 @@ export default {
         contract: config.contract
     },
     contracts: {
-        populous: smartContracts.populous,
-        depositContractsManager: smartContracts.depositContractsManager,
-        crowdSale: smartContracts.crowdSale,
-        currencyToken: smartContracts.currencyToken
+      ...smartContracts,
     }
 }
