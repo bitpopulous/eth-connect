@@ -2,8 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import methods from '../methods/index';
 
-// TODO: _contractDir - should be changeable
-const _contractDir = "../../../populous-smartcontracts/build/contracts";
+const _contractDir = process.env.ETH_SMART_CONTRACTS_PATH || "../../../populous-smartcontracts/build/contracts";
 
 const getABI = (name) => {
   const abiPath = path.join(__dirname, _contractDir, name + '.json');
