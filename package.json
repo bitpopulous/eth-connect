@@ -1,6 +1,6 @@
 {
   "name": "@populous/eth-connect",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Package for reqeusts to smart contracts",
   "main": "dist/index.js",
   "scripts": {
@@ -47,7 +47,6 @@
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-resolve": "^3.0.0",
     "sinon": "^2.4.1"
-
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
