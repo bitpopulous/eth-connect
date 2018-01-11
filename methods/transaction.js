@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     gasLimit: (connect) => {
         return Promise.resolve(3000000);
     },

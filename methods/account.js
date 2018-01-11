@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     unlock: (connect, ...account) => {
         return new Promise((resolve, reject) => {
 
