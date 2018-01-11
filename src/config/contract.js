@@ -27,18 +27,18 @@ export default {
   populous: {
     abi: getABI('Populous'),
     address: "0x62b6a8c8272345063985baf892253b11372eb29d",
-    transaction: transaction,
+    transaction: methods.transaction,
     pptAddress: "0x4377c67224f1e21a42af82ce3647e6c0c04cba3b"
   },
   depositContractsManager: {
     abi: getABI('DepositContractsManager'),
     address: "0x45a483909a0956f8246587d42220504372295e25",
-    transaction: transaction,
+    transaction: methods.transaction,
   },
   crowdSale: {
     abi: getABI('Crowdsale'),
     address: "0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef",
-    transaction: transaction,
+    transaction: methods.transaction,
   },
   currencyToken: {
     abi: getABI('CurrencyToken'),
@@ -48,6 +48,6 @@ export default {
   populousToken: {
     abi: getABI('PopulousToken'),
     address: '0x4377c67224f1e21a42af82ce3647e6c0c04cba3b',
-    transaction: transaction,
+    transaction: methods.transaction,
   }
 };
