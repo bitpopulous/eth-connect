@@ -2,7 +2,7 @@
   "name": "@populous/eth-connect",
   "version": "1.0.2",
   "description": "Package for reqeusts to smart contracts",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src test tools",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch \"src/**/*.spec.js\"",
