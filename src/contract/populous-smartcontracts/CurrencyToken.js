@@ -1,11 +1,6 @@
 export default {
 
-  transferToContract(connect,
-                     contract,
-                     from,
-                     toAddress,
-                     amount,
-                     investorId,) {
+  transferToContract(connect, contract, from, toAddress, amount, investorId) {
     const preparedParams = {
       toAddress,
       amount,
@@ -15,19 +10,23 @@ export default {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
     return contract.transaction.gasLimit(connect)
-      .then(limit =>
-        contractInstance.methods.transferToContract(...Object.values(preparedParams))
-          .send({from, gas: limit,})
+      .then(gas =>
+        contractInstance.methods
+          .transferToContract(...Object.values(preparedParams))
+          .send({
+            from,
+            gas,
+          })
       );
   },
 
-  balanceOf(connect,
-            contract,
-            from,
-            ownerAddress) {
+  balanceOf(connect, contract, from, ownerAddress) {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    return contractInstance.methods.balanceOf(ownerAddress).call({from})
+    return contractInstance.methods.balanceOf(ownerAddress)
+      .call({
+        from,
+      })
       .then((result) => {
         if (typeof result === 'object') {
           throw new Error('Failed transaction');
@@ -37,4 +36,4 @@ export default {
       });
   },
 
-}
+};
