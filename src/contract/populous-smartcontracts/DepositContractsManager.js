@@ -4,13 +4,13 @@ export default {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
     const params = {
-      clientId: connect.utils.asciiToHex(clientId)
+      clientId: connect.utils.asciiToHex(clientId),
     };
 
     return contractInstance.methods
       .getDepositAddress(...Object.values(params))
       .call({
-        from: from
+        from: from,
       });
   },
 
@@ -20,13 +20,13 @@ export default {
     const params = {
       clientId: connect.utils.asciiToHex(clientId),
       tokenContract: tokenContract,
-      receiveCurrency: connect.utils.asciiToHex(receiveCurrency)
-    }
+      receiveCurrency: connect.utils.asciiToHex(receiveCurrency),
+    };
 
     return contractInstance.methods
       .getActiveDepositList(...Object.values(params))
       .call({
-        from: from
+        from: from,
       });
   },
 
@@ -37,14 +37,14 @@ export default {
       clientId: connect.utils.asciiToHex(clientId),
       tokenContract: tokenContract,
       receiveCurrency: connect.utils.asciiToHex(receiveCurrency),
-      depositIndex: depositIndex
-    }
+      depositIndex: depositIndex,
+    };
 
     return contractInstance.methods
       .getActiveDeposit(...Object.values(params))
       .call({
-        from: from
+        from: from,
       });
-  }
+  },
 
 };
