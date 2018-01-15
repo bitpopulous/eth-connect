@@ -178,7 +178,7 @@ export default {
   },
   createCrowdsale: (connect, contract, from,
                     currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount,
-                    fundingGoal, platformTaxPercent, signedDocumentIPFSHash) => {
+                    fundingGoal, platformTaxPercent, signedDocumentIPFSHash, extraTime) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
     const params = {
       currencySymbol: connect.utils.toHex(currencySymbol),
@@ -189,6 +189,7 @@ export default {
       fundingGoal: fundingGoal,
       platformTaxPercent: platformTaxPercent,
       signedDocumentIPFSHash: signedDocumentIPFSHash,
+      extraTime: extraTime,
     };
 
     return contract.transaction.gasLimit(connect)

@@ -12,8 +12,8 @@
     "test-deposit": "mocha --compilers js:babel-register \"src/contract/populous-smartcontracts/DepositContractsManager.spec.js\"",
     "start": "babel-node --presets es2015 index.js",
     "build": "node tools/build",
-    "precommit": "npm run lint && && npm run test",
-    "preversion": "npm run lint && && npm run test"
+    "precommit": "npm run lint && npm run test",
+    "preversion": "npm run lint && npm run test"
   },
   "author": "Populous",
   "license": "ISC",
