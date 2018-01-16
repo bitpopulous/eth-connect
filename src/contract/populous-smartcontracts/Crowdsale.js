@@ -95,4 +95,14 @@ export default {
         from,
       });
   },
+
+  closeCrowdsale: (connect, contract, from) => {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+
+    return contract.transaction.gasLimit(connect).then(gas =>
+      contractInstance.methods.closeCrowdsale().send({
+        from: from,
+        gas: gas,
+      }));
+  },
 };
