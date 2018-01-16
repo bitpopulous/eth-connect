@@ -1,5 +1,6 @@
 import methods from './methods/index';
 import { network, contract } from './config/index';
+import constants from './contract/constants';
 
 import smartContracts from './contract/populous-smartcontracts/index';
 
@@ -19,4 +20,5 @@ export default {
     crowdSale: smartContracts.crowdSale,
     currencyToken: smartContracts.currencyToken,
   },
+  constants: constants,
 };

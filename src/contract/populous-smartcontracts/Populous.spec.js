@@ -1,6 +1,5 @@
 import { expect, assert } from 'chai';
 import Populous from './Populous';
-import Crowdsale from './Crowdsale';
 import {connect} from '../../methods/connect';
 import { network, contract } from '../../config';
 
@@ -126,43 +125,6 @@ describe('transfer function', () => {
   });
 });
 
-describe('createCrowdsale function', () => {
-  it('success', function(done) {
-    this.timeout(15 * 60 * 1000); // 15 min
-    let borrowerId = "B",
-      invoiceId = "8888",
-      invoiceNumber = "8888_" + Date.now(),
-      invoiceAmount = 200, 
-      fundingGoal = 190, 
-      platformTaxPercent = 1, 
-      signedDocumentIPFSHash = "ipfs";
-    Populous.createCrowdsale(settings.web3, contract.populous, fromAddr,
-      currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount, fundingGoal, platformTaxPercent, signedDocumentIPFSHash)
-      .then(crowdsaleAddress => {
-        assert.isString(crowdsaleAddress);
-        assert.lengthOf(crowdsaleAddress, 42);
-        crowdsale = crowdsaleAddress;
-        done();
-      })
-      .catch(e => done(e))
-      .finally(e => expect(e).to.be.undefined);
-  });
-});
-
-describe('closeCrowdsale function', () => {
-  it('success', function(done) {
-    this.timeout(15 * 60 * 1000); // 15 min
-
-    const crowdsaleContract = contract._build('Crowdsale', crowdsale);
-    Crowdsale.closeCrowdsale(settings.web3, crowdsaleContract, fromAddr)
-      .then(result => {
-        expect(result).to.exist;
-        done();
-      })
-      .catch(e => done(e))
-      .finally(e => expect(e).to.be.undefined);
-  });
-});
 
 describe('bid function', () => {
   it('success', function(done) {
