@@ -1,3 +1,5 @@
+import constants from '../constants';
+
 export default {
 
   checkNoBids: (connect, contract, from) => {
@@ -99,10 +101,18 @@ export default {
   closeCrowdsale: (connect, contract, from) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
-    return contract.transaction.gasLimit(connect).then(gas =>
-      contractInstance.methods.closeCrowdsale().send({
-        from: from,
-        gas: gas,
-      }));
+    return contract.transaction.gasLimit(connect)
+      .then(gas =>
+        contractInstance.methods.closeCrowdsale().send({
+          from: from,
+          gas: gas,
+        }))
+      .then((result) => {
+        if (result.status === constants.statusMap.fail) {
+          throw new Error('Failed transaction');
+        }
+
+        return result.events.EventCrowdsaleClosed.returnValues.crowdsaleAddr;
+      });
   },
 };
