@@ -207,17 +207,7 @@ export default {
         return result.events.EventNewCrowdsale.returnValues.crowdsale;
       });
   },
-  closeCrowdsale: (connect, contract, from, crowdsaleAddr) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-    const params = {
-      crowdsaleAddr: crowdsaleAddr,
-    };
-    return contract.transaction.gasLimit(connect).then(gas =>
-      contractInstance.methods.closeCrowdsale(...Object.values(params)).send({
-        from: from,
-        gas: gas,
-      }));
-  },
+
   bid: (connect, contract, from, crowdsaleAddr, groupIndex, bidderId, name, value) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
     const params = {

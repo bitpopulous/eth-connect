@@ -1,5 +1,6 @@
 import { expect, assert } from 'chai';
 import Populous from './Populous';
+import Crowdsale from './Crowdsale';
 import {connect} from '../../methods/connect';
 import { network, contract } from '../../config';
 
@@ -151,7 +152,9 @@ describe('createCrowdsale function', () => {
 describe('closeCrowdsale function', () => {
   it('success', function(done) {
     this.timeout(15 * 60 * 1000); // 15 min
-    Populous.closeCrowdsale(settings.web3, contract.populous, fromAddr, crowdsale)
+
+    const crowdsaleContract = contract._build('Crowdsale', crowdsale);
+    Crowdsale.closeCrowdsale(settings.web3, crowdsaleContract, fromAddr)
       .then(result => {
         expect(result).to.exist;
         done();
