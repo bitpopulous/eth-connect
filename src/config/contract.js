@@ -1,18 +1,13 @@
-import fs from 'fs';
-import path from 'path';
 import methods from '../methods/index';
-
-const contractDir = process.env.ETH_SMART_CONTRACTS_PATH || '../../../populous-smartcontracts/build/contracts';
+import contractsConfigs from './contractsConfigs';
 
 const getABI = (name) => {
-  const abiPath = path.join(__dirname, contractDir, name + '.json');
+  if (!contractsConfigs[name]) {
+    throw new Error('Unknown contract name');
+  }
 
-  const contractJSON = JSON.parse(fs.readFileSync(abiPath, 'utf8'));
-
-  return contractJSON.abi;
+  return contractsConfigs[name].abi;
 };
-
-// TODO: address - should be dynamic
 
 export default {
   _build: (contractName, contractAddress) => ({
