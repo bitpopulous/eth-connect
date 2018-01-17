@@ -1,25 +1,19 @@
+function subscribeToEvent(event, callback) {
+  event().on('data', (result) => {
+    callback({
+      args: Object.values(result.returnValues),
+      raw: result,
+    });
+  })
+    .on('error', (result) => callback(result));
+}
+
 export default {
   subscribe: (connect, contract, eventName, callback) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
     const event = contractInstance.events[eventName];
 
-    event().on('data', (result) => {
-      const args = [];
-      let foundTokenName = false;
-      Object.keys(result.returnValues).forEach((key) => {
-        if (key === 'tokenName' || foundTokenName === true) {
-          foundTokenName = true;
-        } else {
-          args.push(result.returnValues[key]);
-        }
-      });
-
-      callback({
-        args: args,
-        raw: result,
-      });
-    })
-      .on('error', (result) => callback(result));
+    subscribeToEvent(event, callback);
   },
 
   // subscribe to all events
@@ -27,24 +21,6 @@ export default {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
     const event = contractInstance.events.allEvents;
 
-    event().on('data', (result) => {
-      // args end, after token name is found.
-      const args = [];
-      let foundTokenName = false;
-
-      Object.keys(result.returnValues).forEach((key) => {
-        if (key === 'tokenName' || foundTokenName === true) {
-          foundTokenName = true;
-        } else {
-          args.push(result.returnValues[key]);
-        }
-      });
-
-      callback({
-        args: args,
-        raw: result,
-      });
-    })
-      .on('error', (result) => callback(result));
+    subscribeToEvent(event, callback);
   },
 };
