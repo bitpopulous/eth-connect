@@ -6,6 +6,8 @@ export function encode(data, values) {
   return Interface.encodeParams(data, values);
 }
 
-export function encrypt(data) {
+export function toSHA256(data) {
   return SHA256(data).toString();
 }
+
+export default { encode, toSHA256 };
