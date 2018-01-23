@@ -7609,4 +7609,4 @@ export default {
   },
   "schemaVersion": "1.0.0",
   "updatedAt": "2018-01-22T11:31:43.555Z"
-}
+};

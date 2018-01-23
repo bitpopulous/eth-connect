@@ -28,7 +28,6 @@ export default {
   },
   crowdSale: {
     abi: getABI('Crowdsale'),
-    address: '0xdb332aa258dbf4f8fa173c4ebdb21218a9b6b6ef',
     transaction: methods.transaction,
   },
   currencyToken: {

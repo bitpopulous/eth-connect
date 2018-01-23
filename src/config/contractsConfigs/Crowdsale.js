@@ -19724,4 +19724,4 @@ export default {
   "networks": {},
   "schemaVersion": "1.0.0",
   "updatedAt": "2018-01-22T11:26:22.320Z"
-}
+};
