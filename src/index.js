@@ -19,6 +19,7 @@ export default {
     depositContractsManager: smartContracts.depositContractsManager,
     crowdSale: smartContracts.crowdSale,
     currencyToken: smartContracts.currencyToken,
+    ierc20token: smartContracts.ierc20token,
   },
   constants: constants,
 };
