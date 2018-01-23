@@ -467,7 +467,7 @@ export default {
       },
       {
         "attributes": {
-          "SourceUnit": 4533,
+          "SourceUnit": 4542,
           "absolutePath": "/Users/najienka/Desktop/populous-smartcontracts/contracts/SafeMath.sol",
           "file": "./SafeMath.sol",
           "scope": 1694,
@@ -482,7 +482,7 @@ export default {
       },
       {
         "attributes": {
-          "SourceUnit": 4953,
+          "SourceUnit": 4962,
           "absolutePath": "/Users/najienka/Desktop/populous-smartcontracts/contracts/withAccessManager.sol",
           "file": "./withAccessManager.sol",
           "scope": 1694,
@@ -499,17 +499,17 @@ export default {
         "attributes": {
           "contractDependencies": [
             2657,
-            4878,
-            4952
+            4887,
+            4961
           ],
           "contractKind": "contract",
           "documentation": "@title CurrencyToken contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             1693,
-            4952,
+            4961,
             2657,
-            4878
+            4887
           ],
           "name": "CurrencyToken",
           "scope": 1694
@@ -549,7 +549,7 @@ export default {
                 "attributes": {
                   "contractScope": null,
                   "name": "withAccessManager",
-                  "referencedDeclaration": 4952,
+                  "referencedDeclaration": 4961,
                   "type": "contract withAccessManager"
                 },
                 "id": 1578,
@@ -782,7 +782,7 @@ export default {
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 4952,
+                      "referencedDeclaration": 4961,
                       "type": "type(contract withAccessManager)",
                       "value": "withAccessManager"
                     },
@@ -1044,7 +1044,7 @@ export default {
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 4925,
+                      "referencedDeclaration": 4934,
                       "type": "modifier ()",
                       "value": "onlyPopulous"
                     },
@@ -1134,7 +1134,7 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4883,
+                                          "referencedDeclaration": 4892,
                                           "type": "contract AccessManager",
                                           "value": "AM"
                                         },
@@ -1189,7 +1189,7 @@ export default {
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "safeAdd",
-                                  "referencedDeclaration": 4495,
+                                  "referencedDeclaration": 4504,
                                   "type": "function (uint256,uint256) pure returns (uint256)"
                                 },
                                 "children": [
@@ -1199,7 +1199,7 @@ export default {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4532,
+                                      "referencedDeclaration": 4541,
                                       "type": "type(library SafeMath)",
                                       "value": "SafeMath"
                                     },
@@ -1274,7 +1274,7 @@ export default {
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4883,
+                                              "referencedDeclaration": 4892,
                                               "type": "contract AccessManager",
                                               "value": "AM"
                                             },
@@ -1345,7 +1345,7 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4816,
+                              "referencedDeclaration": 4825,
                               "type": "uint256",
                               "value": "totalSupply"
                             },
@@ -1385,7 +1385,7 @@ export default {
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "safeAdd",
-                                  "referencedDeclaration": 4495,
+                                  "referencedDeclaration": 4504,
                                   "type": "function (uint256,uint256) pure returns (uint256)"
                                 },
                                 "children": [
@@ -1395,7 +1395,7 @@ export default {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4532,
+                                      "referencedDeclaration": 4541,
                                       "type": "type(library SafeMath)",
                                       "value": "SafeMath"
                                     },
@@ -1414,7 +1414,7 @@ export default {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4816,
+                                  "referencedDeclaration": 4825,
                                   "type": "uint256",
                                   "value": "totalSupply"
                                 },
@@ -1553,7 +1553,7 @@ export default {
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 4925,
+                      "referencedDeclaration": 4934,
                       "type": "modifier ()",
                       "value": "onlyPopulous"
                     },
@@ -1647,7 +1647,7 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4883,
+                                          "referencedDeclaration": 4892,
                                           "type": "contract AccessManager",
                                           "value": "AM"
                                         },
@@ -1800,7 +1800,7 @@ export default {
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 4883,
+                                                  "referencedDeclaration": 4892,
                                                   "type": "contract AccessManager",
                                                   "value": "AM"
                                                 },
@@ -1855,7 +1855,7 @@ export default {
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "safeSub",
-                                          "referencedDeclaration": 4467,
+                                          "referencedDeclaration": 4476,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -1865,7 +1865,7 @@ export default {
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4532,
+                                              "referencedDeclaration": 4541,
                                               "type": "type(library SafeMath)",
                                               "value": "SafeMath"
                                             },
@@ -1940,7 +1940,7 @@ export default {
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 4883,
+                                                      "referencedDeclaration": 4892,
                                                       "type": "contract AccessManager",
                                                       "value": "AM"
                                                     },
@@ -2011,7 +2011,7 @@ export default {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4816,
+                                      "referencedDeclaration": 4825,
                                       "type": "uint256",
                                       "value": "totalSupply"
                                     },
@@ -2051,7 +2051,7 @@ export default {
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "safeSub",
-                                          "referencedDeclaration": 4467,
+                                          "referencedDeclaration": 4476,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -2061,7 +2061,7 @@ export default {
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4532,
+                                              "referencedDeclaration": 4541,
                                               "type": "type(library SafeMath)",
                                               "value": "SafeMath"
                                             },
@@ -2080,7 +2080,7 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4816,
+                                          "referencedDeclaration": 4825,
                                           "type": "uint256",
                                           "value": "totalSupply"
                                         },
@@ -2176,5 +2176,5 @@ export default {
   },
   "networks": {},
   "schemaVersion": "1.0.0",
-  "updatedAt": "2018-01-16T08:58:43.363Z"
-}
+  "updatedAt": "2018-01-22T11:24:39.046Z"
+};
