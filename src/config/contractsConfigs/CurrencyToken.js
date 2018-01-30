@@ -432,7 +432,7 @@ export default {
       "absolutePath": "/Users/najienka/Desktop/populous-smartcontracts/contracts/CurrencyToken.sol",
       "exportedSymbols": {
         "CurrencyToken": [
-          1693
+          1683
         ]
       }
     },
@@ -446,73 +446,73 @@ export default {
             ".17"
           ]
         },
-        "id": 1572,
+        "id": 1562,
         "name": "PragmaDirective",
         "src": "0:24:3"
       },
       {
         "attributes": {
-          "SourceUnit": 2658,
+          "SourceUnit": 2648,
           "absolutePath": "/Users/najienka/Desktop/populous-smartcontracts/contracts/ERC23Token.sol",
           "file": "./ERC23Token.sol",
-          "scope": 1694,
+          "scope": 1684,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1573,
+        "id": 1563,
         "name": "ImportDirective",
         "src": "26:26:3"
       },
       {
         "attributes": {
-          "SourceUnit": 4542,
+          "SourceUnit": 4532,
           "absolutePath": "/Users/najienka/Desktop/populous-smartcontracts/contracts/SafeMath.sol",
           "file": "./SafeMath.sol",
-          "scope": 1694,
+          "scope": 1684,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1574,
+        "id": 1564,
         "name": "ImportDirective",
         "src": "53:24:3"
       },
       {
         "attributes": {
-          "SourceUnit": 4962,
+          "SourceUnit": 4952,
           "absolutePath": "/Users/najienka/Desktop/populous-smartcontracts/contracts/withAccessManager.sol",
           "file": "./withAccessManager.sol",
-          "scope": 1694,
+          "scope": 1684,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1575,
+        "id": 1565,
         "name": "ImportDirective",
         "src": "78:33:3"
       },
       {
         "attributes": {
           "contractDependencies": [
-            2657,
-            4887,
-            4961
+            2647,
+            4877,
+            4951
           ],
           "contractKind": "contract",
           "documentation": "@title CurrencyToken contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1693,
-            4961,
-            2657,
-            4887
+            1683,
+            4951,
+            2647,
+            4877
           ],
           "name": "CurrencyToken",
-          "scope": 1694
+          "scope": 1684
         },
         "children": [
           {
@@ -526,15 +526,15 @@ export default {
                 "attributes": {
                   "contractScope": null,
                   "name": "ERC23Token",
-                  "referencedDeclaration": 2657,
+                  "referencedDeclaration": 2647,
                   "type": "contract ERC23Token"
                 },
-                "id": 1576,
+                "id": 1566,
                 "name": "UserDefinedTypeName",
                 "src": "174:10:3"
               }
             ],
-            "id": 1577,
+            "id": 1567,
             "name": "InheritanceSpecifier",
             "src": "174:10:3"
           },
@@ -549,15 +549,15 @@ export default {
                 "attributes": {
                   "contractScope": null,
                   "name": "withAccessManager",
-                  "referencedDeclaration": 4961,
+                  "referencedDeclaration": 4951,
                   "type": "contract withAccessManager"
                 },
-                "id": 1578,
+                "id": 1568,
                 "name": "UserDefinedTypeName",
                 "src": "186:17:3"
               }
             ],
-            "id": 1579,
+            "id": 1569,
             "name": "InheritanceSpecifier",
             "src": "186:17:3"
           },
@@ -565,7 +565,7 @@ export default {
             "attributes": {
               "constant": false,
               "name": "name",
-              "scope": 1693,
+              "scope": 1683,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bytes32",
@@ -578,12 +578,12 @@ export default {
                   "name": "bytes32",
                   "type": "bytes32"
                 },
-                "id": 1580,
+                "id": 1570,
                 "name": "ElementaryTypeName",
                 "src": "226:7:3"
               }
             ],
-            "id": 1581,
+            "id": 1571,
             "name": "VariableDeclaration",
             "src": "226:19:3"
           },
@@ -591,7 +591,7 @@ export default {
             "attributes": {
               "constant": false,
               "name": "decimals",
-              "scope": 1693,
+              "scope": 1683,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -604,12 +604,12 @@ export default {
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 1582,
+                "id": 1572,
                 "name": "ElementaryTypeName",
                 "src": "297:5:3"
               }
             ],
-            "id": 1583,
+            "id": 1573,
             "name": "VariableDeclaration",
             "src": "297:21:3"
           },
@@ -617,7 +617,7 @@ export default {
             "attributes": {
               "constant": false,
               "name": "symbol",
-              "scope": 1693,
+              "scope": 1683,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bytes32",
@@ -630,12 +630,12 @@ export default {
                   "name": "bytes32",
                   "type": "bytes32"
                 },
-                "id": 1584,
+                "id": 1574,
                 "name": "ElementaryTypeName",
                 "src": "476:7:3"
               }
             ],
-            "id": 1585,
+            "id": 1575,
             "name": "VariableDeclaration",
             "src": "476:21:3"
           },
@@ -646,7 +646,7 @@ export default {
               "isConstructor": true,
               "name": "CurrencyToken",
               "payable": false,
-              "scope": 1693,
+              "scope": 1683,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -658,7 +658,7 @@ export default {
                     "attributes": {
                       "constant": false,
                       "name": "_accessManager",
-                      "scope": 1612,
+                      "scope": 1602,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -671,12 +671,12 @@ export default {
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1586,
+                        "id": 1576,
                         "name": "ElementaryTypeName",
                         "src": "890:7:3"
                       }
                     ],
-                    "id": 1587,
+                    "id": 1577,
                     "name": "VariableDeclaration",
                     "src": "890:22:3"
                   },
@@ -684,7 +684,7 @@ export default {
                     "attributes": {
                       "constant": false,
                       "name": "_tokenName",
-                      "scope": 1612,
+                      "scope": 1602,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -697,12 +697,12 @@ export default {
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 1588,
+                        "id": 1578,
                         "name": "ElementaryTypeName",
                         "src": "922:7:3"
                       }
                     ],
-                    "id": 1589,
+                    "id": 1579,
                     "name": "VariableDeclaration",
                     "src": "922:18:3"
                   },
@@ -710,7 +710,7 @@ export default {
                     "attributes": {
                       "constant": false,
                       "name": "_decimalUnits",
-                      "scope": 1612,
+                      "scope": 1602,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -723,12 +723,12 @@ export default {
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 1590,
+                        "id": 1580,
                         "name": "ElementaryTypeName",
                         "src": "950:5:3"
                       }
                     ],
-                    "id": 1591,
+                    "id": 1581,
                     "name": "VariableDeclaration",
                     "src": "950:19:3"
                   },
@@ -736,7 +736,7 @@ export default {
                     "attributes": {
                       "constant": false,
                       "name": "_tokenSymbol",
-                      "scope": 1612,
+                      "scope": 1602,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -749,17 +749,17 @@ export default {
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 1592,
+                        "id": 1582,
                         "name": "ElementaryTypeName",
                         "src": "979:7:3"
                       }
                     ],
-                    "id": 1593,
+                    "id": 1583,
                     "name": "VariableDeclaration",
                     "src": "979:20:3"
                   }
                 ],
-                "id": 1594,
+                "id": 1584,
                 "name": "ParameterList",
                 "src": "880:120:3"
               },
@@ -770,7 +770,7 @@ export default {
                   ]
                 },
                 "children": [],
-                "id": 1598,
+                "id": 1588,
                 "name": "ParameterList",
                 "src": "1062:0:3"
               },
@@ -782,11 +782,11 @@ export default {
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 4961,
+                      "referencedDeclaration": 4951,
                       "type": "type(contract withAccessManager)",
                       "value": "withAccessManager"
                     },
-                    "id": 1595,
+                    "id": 1585,
                     "name": "Identifier",
                     "src": "1024:17:3"
                   },
@@ -796,16 +796,16 @@ export default {
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1587,
+                      "referencedDeclaration": 1577,
                       "type": "address",
                       "value": "_accessManager"
                     },
-                    "id": 1596,
+                    "id": 1586,
                     "name": "Identifier",
                     "src": "1042:14:3"
                   }
                 ],
-                "id": 1597,
+                "id": 1587,
                 "name": "ModifierInvocation",
                 "src": "1024:33:3"
               },
@@ -830,11 +830,11 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1581,
+                              "referencedDeclaration": 1571,
                               "type": "bytes32",
                               "value": "name"
                             },
-                            "id": 1599,
+                            "id": 1589,
                             "name": "Identifier",
                             "src": "1072:4:3"
                           },
@@ -844,21 +844,21 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1589,
+                              "referencedDeclaration": 1579,
                               "type": "bytes32",
                               "value": "_tokenName"
                             },
-                            "id": 1600,
+                            "id": 1590,
                             "name": "Identifier",
                             "src": "1079:10:3"
                           }
                         ],
-                        "id": 1601,
+                        "id": 1591,
                         "name": "Assignment",
                         "src": "1072:17:3"
                       }
                     ],
-                    "id": 1602,
+                    "id": 1592,
                     "name": "ExpressionStatement",
                     "src": "1072:17:3"
                   },
@@ -881,11 +881,11 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1583,
+                              "referencedDeclaration": 1573,
                               "type": "uint8",
                               "value": "decimals"
                             },
-                            "id": 1603,
+                            "id": 1593,
                             "name": "Identifier",
                             "src": "1136:8:3"
                           },
@@ -895,21 +895,21 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1591,
+                              "referencedDeclaration": 1581,
                               "type": "uint8",
                               "value": "_decimalUnits"
                             },
-                            "id": 1604,
+                            "id": 1594,
                             "name": "Identifier",
                             "src": "1147:13:3"
                           }
                         ],
-                        "id": 1605,
+                        "id": 1595,
                         "name": "Assignment",
                         "src": "1136:24:3"
                       }
                     ],
-                    "id": 1606,
+                    "id": 1596,
                     "name": "ExpressionStatement",
                     "src": "1136:24:3"
                   },
@@ -932,11 +932,11 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1585,
+                              "referencedDeclaration": 1575,
                               "type": "bytes32",
                               "value": "symbol"
                             },
-                            "id": 1607,
+                            "id": 1597,
                             "name": "Identifier",
                             "src": "1213:6:3"
                           },
@@ -946,31 +946,31 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1593,
+                              "referencedDeclaration": 1583,
                               "type": "bytes32",
                               "value": "_tokenSymbol"
                             },
-                            "id": 1608,
+                            "id": 1598,
                             "name": "Identifier",
                             "src": "1222:12:3"
                           }
                         ],
-                        "id": 1609,
+                        "id": 1599,
                         "name": "Assignment",
                         "src": "1213:21:3"
                       }
                     ],
-                    "id": 1610,
+                    "id": 1600,
                     "name": "ExpressionStatement",
                     "src": "1213:21:3"
                   }
                 ],
-                "id": 1611,
+                "id": 1601,
                 "name": "Block",
                 "src": "1062:218:3"
               }
             ],
-            "id": 1612,
+            "id": 1602,
             "name": "FunctionDefinition",
             "src": "857:423:3"
           },
@@ -981,7 +981,7 @@ export default {
               "isConstructor": false,
               "name": "mintTokens",
               "payable": false,
-              "scope": 1693,
+              "scope": 1683,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -993,7 +993,7 @@ export default {
                     "attributes": {
                       "constant": false,
                       "name": "amount",
-                      "scope": 1644,
+                      "scope": 1634,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1006,17 +1006,17 @@ export default {
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1613,
+                        "id": 1603,
                         "name": "ElementaryTypeName",
                         "src": "1602:4:3"
                       }
                     ],
-                    "id": 1614,
+                    "id": 1604,
                     "name": "VariableDeclaration",
                     "src": "1602:11:3"
                   }
                 ],
-                "id": 1615,
+                "id": 1605,
                 "name": "ParameterList",
                 "src": "1601:13:3"
               },
@@ -1027,7 +1027,7 @@ export default {
                   ]
                 },
                 "children": [],
-                "id": 1618,
+                "id": 1608,
                 "name": "ParameterList",
                 "src": "1635:0:3"
               },
@@ -1044,16 +1044,16 @@ export default {
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 4934,
+                      "referencedDeclaration": 4924,
                       "type": "modifier ()",
                       "value": "onlyPopulous"
                     },
-                    "id": 1616,
+                    "id": 1606,
                     "name": "Identifier",
                     "src": "1622:12:3"
                   }
                 ],
-                "id": 1617,
+                "id": 1607,
                 "name": "ModifierInvocation",
                 "src": "1622:12:3"
               },
@@ -1088,11 +1088,11 @@ export default {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2650,
+                                  "referencedDeclaration": 2640,
                                   "type": "mapping(address => uint256)",
                                   "value": "balances"
                                 },
-                                "id": 1619,
+                                "id": 1609,
                                 "name": "Identifier",
                                 "src": "1645:8:3"
                               },
@@ -1134,26 +1134,26 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4892,
+                                          "referencedDeclaration": 4882,
                                           "type": "contract AccessManager",
                                           "value": "AM"
                                         },
-                                        "id": 1620,
+                                        "id": 1610,
                                         "name": "Identifier",
                                         "src": "1654:2:3"
                                       }
                                     ],
-                                    "id": 1621,
+                                    "id": 1611,
                                     "name": "MemberAccess",
                                     "src": "1654:11:3"
                                   }
                                 ],
-                                "id": 1622,
+                                "id": 1612,
                                 "name": "FunctionCall",
                                 "src": "1654:13:3"
                               }
                             ],
-                            "id": 1623,
+                            "id": 1613,
                             "name": "IndexAccess",
                             "src": "1645:23:3"
                           },
@@ -1189,7 +1189,7 @@ export default {
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "safeAdd",
-                                  "referencedDeclaration": 4504,
+                                  "referencedDeclaration": 4494,
                                   "type": "function (uint256,uint256) pure returns (uint256)"
                                 },
                                 "children": [
@@ -1199,16 +1199,16 @@ export default {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4541,
+                                      "referencedDeclaration": 4531,
                                       "type": "type(library SafeMath)",
                                       "value": "SafeMath"
                                     },
-                                    "id": 1624,
+                                    "id": 1614,
                                     "name": "Identifier",
                                     "src": "1671:8:3"
                                   }
                                 ],
-                                "id": 1625,
+                                "id": 1615,
                                 "name": "MemberAccess",
                                 "src": "1671:16:3"
                               },
@@ -1228,11 +1228,11 @@ export default {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 2650,
+                                      "referencedDeclaration": 2640,
                                       "type": "mapping(address => uint256)",
                                       "value": "balances"
                                     },
-                                    "id": 1626,
+                                    "id": 1616,
                                     "name": "Identifier",
                                     "src": "1688:8:3"
                                   },
@@ -1274,26 +1274,26 @@ export default {
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4892,
+                                              "referencedDeclaration": 4882,
                                               "type": "contract AccessManager",
                                               "value": "AM"
                                             },
-                                            "id": 1627,
+                                            "id": 1617,
                                             "name": "Identifier",
                                             "src": "1697:2:3"
                                           }
                                         ],
-                                        "id": 1628,
+                                        "id": 1618,
                                         "name": "MemberAccess",
                                         "src": "1697:11:3"
                                       }
                                     ],
-                                    "id": 1629,
+                                    "id": 1619,
                                     "name": "FunctionCall",
                                     "src": "1697:13:3"
                                   }
                                 ],
-                                "id": 1630,
+                                "id": 1620,
                                 "name": "IndexAccess",
                                 "src": "1688:23:3"
                               },
@@ -1303,26 +1303,26 @@ export default {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1614,
+                                  "referencedDeclaration": 1604,
                                   "type": "uint256",
                                   "value": "amount"
                                 },
-                                "id": 1631,
+                                "id": 1621,
                                 "name": "Identifier",
                                 "src": "1713:6:3"
                               }
                             ],
-                            "id": 1632,
+                            "id": 1622,
                             "name": "FunctionCall",
                             "src": "1671:49:3"
                           }
                         ],
-                        "id": 1633,
+                        "id": 1623,
                         "name": "Assignment",
                         "src": "1645:75:3"
                       }
                     ],
-                    "id": 1634,
+                    "id": 1624,
                     "name": "ExpressionStatement",
                     "src": "1645:75:3"
                   },
@@ -1345,11 +1345,11 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4825,
+                              "referencedDeclaration": 4815,
                               "type": "uint256",
                               "value": "totalSupply"
                             },
-                            "id": 1635,
+                            "id": 1625,
                             "name": "Identifier",
                             "src": "1730:11:3"
                           },
@@ -1385,7 +1385,7 @@ export default {
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "safeAdd",
-                                  "referencedDeclaration": 4504,
+                                  "referencedDeclaration": 4494,
                                   "type": "function (uint256,uint256) pure returns (uint256)"
                                 },
                                 "children": [
@@ -1395,16 +1395,16 @@ export default {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4541,
+                                      "referencedDeclaration": 4531,
                                       "type": "type(library SafeMath)",
                                       "value": "SafeMath"
                                     },
-                                    "id": 1636,
+                                    "id": 1626,
                                     "name": "Identifier",
                                     "src": "1744:8:3"
                                   }
                                 ],
-                                "id": 1637,
+                                "id": 1627,
                                 "name": "MemberAccess",
                                 "src": "1744:16:3"
                               },
@@ -1414,11 +1414,11 @@ export default {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4825,
+                                  "referencedDeclaration": 4815,
                                   "type": "uint256",
                                   "value": "totalSupply"
                                 },
-                                "id": 1638,
+                                "id": 1628,
                                 "name": "Identifier",
                                 "src": "1761:11:3"
                               },
@@ -1428,36 +1428,36 @@ export default {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1614,
+                                  "referencedDeclaration": 1604,
                                   "type": "uint256",
                                   "value": "amount"
                                 },
-                                "id": 1639,
+                                "id": 1629,
                                 "name": "Identifier",
                                 "src": "1774:6:3"
                               }
                             ],
-                            "id": 1640,
+                            "id": 1630,
                             "name": "FunctionCall",
                             "src": "1744:37:3"
                           }
                         ],
-                        "id": 1641,
+                        "id": 1631,
                         "name": "Assignment",
                         "src": "1730:51:3"
                       }
                     ],
-                    "id": 1642,
+                    "id": 1632,
                     "name": "ExpressionStatement",
                     "src": "1730:51:3"
                   }
                 ],
-                "id": 1643,
+                "id": 1633,
                 "name": "Block",
                 "src": "1635:153:3"
               }
             ],
-            "id": 1644,
+            "id": 1634,
             "name": "FunctionDefinition",
             "src": "1582:206:3"
           },
@@ -1468,7 +1468,7 @@ export default {
               "isConstructor": false,
               "name": "destroyTokens",
               "payable": false,
-              "scope": 1693,
+              "scope": 1683,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1480,7 +1480,7 @@ export default {
                     "attributes": {
                       "constant": false,
                       "name": "amount",
-                      "scope": 1692,
+                      "scope": 1682,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1493,17 +1493,17 @@ export default {
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1645,
+                        "id": 1635,
                         "name": "ElementaryTypeName",
                         "src": "2125:4:3"
                       }
                     ],
-                    "id": 1646,
+                    "id": 1636,
                     "name": "VariableDeclaration",
                     "src": "2125:11:3"
                   }
                 ],
-                "id": 1647,
+                "id": 1637,
                 "name": "ParameterList",
                 "src": "2124:13:3"
               },
@@ -1513,7 +1513,7 @@ export default {
                     "attributes": {
                       "constant": false,
                       "name": "success",
-                      "scope": 1692,
+                      "scope": 1682,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1526,17 +1526,17 @@ export default {
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1650,
+                        "id": 1640,
                         "name": "ElementaryTypeName",
                         "src": "2167:4:3"
                       }
                     ],
-                    "id": 1651,
+                    "id": 1641,
                     "name": "VariableDeclaration",
                     "src": "2167:12:3"
                   }
                 ],
-                "id": 1652,
+                "id": 1642,
                 "name": "ParameterList",
                 "src": "2166:14:3"
               },
@@ -1553,16 +1553,16 @@ export default {
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 4934,
+                      "referencedDeclaration": 4924,
                       "type": "modifier ()",
                       "value": "onlyPopulous"
                     },
-                    "id": 1648,
+                    "id": 1638,
                     "name": "Identifier",
                     "src": "2145:12:3"
                   }
                 ],
-                "id": 1649,
+                "id": 1639,
                 "name": "ModifierInvocation",
                 "src": "2145:12:3"
               },
@@ -1601,11 +1601,11 @@ export default {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2650,
+                                  "referencedDeclaration": 2640,
                                   "type": "mapping(address => uint256)",
                                   "value": "balances"
                                 },
-                                "id": 1653,
+                                "id": 1643,
                                 "name": "Identifier",
                                 "src": "2195:8:3"
                               },
@@ -1647,26 +1647,26 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4892,
+                                          "referencedDeclaration": 4882,
                                           "type": "contract AccessManager",
                                           "value": "AM"
                                         },
-                                        "id": 1654,
+                                        "id": 1644,
                                         "name": "Identifier",
                                         "src": "2204:2:3"
                                       }
                                     ],
-                                    "id": 1655,
+                                    "id": 1645,
                                     "name": "MemberAccess",
                                     "src": "2204:11:3"
                                   }
                                 ],
-                                "id": 1656,
+                                "id": 1646,
                                 "name": "FunctionCall",
                                 "src": "2204:13:3"
                               }
                             ],
-                            "id": 1657,
+                            "id": 1647,
                             "name": "IndexAccess",
                             "src": "2195:23:3"
                           },
@@ -1676,16 +1676,16 @@ export default {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1646,
+                              "referencedDeclaration": 1636,
                               "type": "uint256",
                               "value": "amount"
                             },
-                            "id": 1658,
+                            "id": 1648,
                             "name": "Identifier",
                             "src": "2221:6:3"
                           }
                         ],
-                        "id": 1659,
+                        "id": 1649,
                         "name": "BinaryOperation",
                         "src": "2195:32:3"
                       },
@@ -1693,7 +1693,7 @@ export default {
                         "children": [
                           {
                             "attributes": {
-                              "functionReturnParameters": 1652
+                              "functionReturnParameters": 1642
                             },
                             "children": [
                               {
@@ -1709,17 +1709,17 @@ export default {
                                   "type": "bool",
                                   "value": "false"
                                 },
-                                "id": 1660,
+                                "id": 1650,
                                 "name": "Literal",
                                 "src": "2250:5:3"
                               }
                             ],
-                            "id": 1661,
+                            "id": 1651,
                             "name": "Return",
                             "src": "2243:12:3"
                           }
                         ],
-                        "id": 1662,
+                        "id": 1652,
                         "name": "Block",
                         "src": "2229:37:3"
                       },
@@ -1754,11 +1754,11 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 2650,
+                                          "referencedDeclaration": 2640,
                                           "type": "mapping(address => uint256)",
                                           "value": "balances"
                                         },
-                                        "id": 1663,
+                                        "id": 1653,
                                         "name": "Identifier",
                                         "src": "2286:8:3"
                                       },
@@ -1800,26 +1800,26 @@ export default {
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 4892,
+                                                  "referencedDeclaration": 4882,
                                                   "type": "contract AccessManager",
                                                   "value": "AM"
                                                 },
-                                                "id": 1664,
+                                                "id": 1654,
                                                 "name": "Identifier",
                                                 "src": "2295:2:3"
                                               }
                                             ],
-                                            "id": 1665,
+                                            "id": 1655,
                                             "name": "MemberAccess",
                                             "src": "2295:11:3"
                                           }
                                         ],
-                                        "id": 1666,
+                                        "id": 1656,
                                         "name": "FunctionCall",
                                         "src": "2295:13:3"
                                       }
                                     ],
-                                    "id": 1667,
+                                    "id": 1657,
                                     "name": "IndexAccess",
                                     "src": "2286:23:3"
                                   },
@@ -1855,7 +1855,7 @@ export default {
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "safeSub",
-                                          "referencedDeclaration": 4476,
+                                          "referencedDeclaration": 4466,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -1865,16 +1865,16 @@ export default {
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4541,
+                                              "referencedDeclaration": 4531,
                                               "type": "type(library SafeMath)",
                                               "value": "SafeMath"
                                             },
-                                            "id": 1668,
+                                            "id": 1658,
                                             "name": "Identifier",
                                             "src": "2312:8:3"
                                           }
                                         ],
-                                        "id": 1669,
+                                        "id": 1659,
                                         "name": "MemberAccess",
                                         "src": "2312:16:3"
                                       },
@@ -1894,11 +1894,11 @@ export default {
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 2650,
+                                              "referencedDeclaration": 2640,
                                               "type": "mapping(address => uint256)",
                                               "value": "balances"
                                             },
-                                            "id": 1670,
+                                            "id": 1660,
                                             "name": "Identifier",
                                             "src": "2329:8:3"
                                           },
@@ -1940,26 +1940,26 @@ export default {
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 4892,
+                                                      "referencedDeclaration": 4882,
                                                       "type": "contract AccessManager",
                                                       "value": "AM"
                                                     },
-                                                    "id": 1671,
+                                                    "id": 1661,
                                                     "name": "Identifier",
                                                     "src": "2338:2:3"
                                                   }
                                                 ],
-                                                "id": 1672,
+                                                "id": 1662,
                                                 "name": "MemberAccess",
                                                 "src": "2338:11:3"
                                               }
                                             ],
-                                            "id": 1673,
+                                            "id": 1663,
                                             "name": "FunctionCall",
                                             "src": "2338:13:3"
                                           }
                                         ],
-                                        "id": 1674,
+                                        "id": 1664,
                                         "name": "IndexAccess",
                                         "src": "2329:23:3"
                                       },
@@ -1969,26 +1969,26 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1646,
+                                          "referencedDeclaration": 1636,
                                           "type": "uint256",
                                           "value": "amount"
                                         },
-                                        "id": 1675,
+                                        "id": 1665,
                                         "name": "Identifier",
                                         "src": "2354:6:3"
                                       }
                                     ],
-                                    "id": 1676,
+                                    "id": 1666,
                                     "name": "FunctionCall",
                                     "src": "2312:49:3"
                                   }
                                 ],
-                                "id": 1677,
+                                "id": 1667,
                                 "name": "Assignment",
                                 "src": "2286:75:3"
                               }
                             ],
-                            "id": 1678,
+                            "id": 1668,
                             "name": "ExpressionStatement",
                             "src": "2286:75:3"
                           },
@@ -2011,11 +2011,11 @@ export default {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4825,
+                                      "referencedDeclaration": 4815,
                                       "type": "uint256",
                                       "value": "totalSupply"
                                     },
-                                    "id": 1679,
+                                    "id": 1669,
                                     "name": "Identifier",
                                     "src": "2375:11:3"
                                   },
@@ -2051,7 +2051,7 @@ export default {
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "safeSub",
-                                          "referencedDeclaration": 4476,
+                                          "referencedDeclaration": 4466,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -2061,16 +2061,16 @@ export default {
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4541,
+                                              "referencedDeclaration": 4531,
                                               "type": "type(library SafeMath)",
                                               "value": "SafeMath"
                                             },
-                                            "id": 1680,
+                                            "id": 1670,
                                             "name": "Identifier",
                                             "src": "2389:8:3"
                                           }
                                         ],
-                                        "id": 1681,
+                                        "id": 1671,
                                         "name": "MemberAccess",
                                         "src": "2389:16:3"
                                       },
@@ -2080,11 +2080,11 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4825,
+                                          "referencedDeclaration": 4815,
                                           "type": "uint256",
                                           "value": "totalSupply"
                                         },
-                                        "id": 1682,
+                                        "id": 1672,
                                         "name": "Identifier",
                                         "src": "2406:11:3"
                                       },
@@ -2094,32 +2094,32 @@ export default {
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1646,
+                                          "referencedDeclaration": 1636,
                                           "type": "uint256",
                                           "value": "amount"
                                         },
-                                        "id": 1683,
+                                        "id": 1673,
                                         "name": "Identifier",
                                         "src": "2419:6:3"
                                       }
                                     ],
-                                    "id": 1684,
+                                    "id": 1674,
                                     "name": "FunctionCall",
                                     "src": "2389:37:3"
                                   }
                                 ],
-                                "id": 1685,
+                                "id": 1675,
                                 "name": "Assignment",
                                 "src": "2375:51:3"
                               }
                             ],
-                            "id": 1686,
+                            "id": 1676,
                             "name": "ExpressionStatement",
                             "src": "2375:51:3"
                           },
                           {
                             "attributes": {
-                              "functionReturnParameters": 1652
+                              "functionReturnParameters": 1642
                             },
                             "children": [
                               {
@@ -2135,46 +2135,46 @@ export default {
                                   "type": "bool",
                                   "value": "true"
                                 },
-                                "id": 1687,
+                                "id": 1677,
                                 "name": "Literal",
                                 "src": "2447:4:3"
                               }
                             ],
-                            "id": 1688,
+                            "id": 1678,
                             "name": "Return",
                             "src": "2440:11:3"
                           }
                         ],
-                        "id": 1689,
+                        "id": 1679,
                         "name": "Block",
                         "src": "2272:190:3"
                       }
                     ],
-                    "id": 1690,
+                    "id": 1680,
                     "name": "IfStatement",
                     "src": "2191:271:3"
                   }
                 ],
-                "id": 1691,
+                "id": 1681,
                 "name": "Block",
                 "src": "2181:287:3"
               }
             ],
-            "id": 1692,
+            "id": 1682,
             "name": "FunctionDefinition",
             "src": "2102:366:3"
           }
         ],
-        "id": 1693,
+        "id": 1683,
         "name": "ContractDefinition",
         "src": "148:2322:3"
       }
     ],
-    "id": 1694,
+    "id": 1684,
     "name": "SourceUnit",
     "src": "0:2470:3"
   },
   "networks": {},
   "schemaVersion": "1.0.0",
-  "updatedAt": "2018-01-22T11:24:39.046Z"
+  "updatedAt": "2018-01-24T16:00:11.167Z"
 };
