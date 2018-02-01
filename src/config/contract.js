@@ -17,27 +17,31 @@ export default {
   }),
   populous: {
     abi: getABI('Populous'),
-    address: '0x4ebd658ce5831deedcabe1384c5caea270765467',
-    pptAddress: '0x4512299e0ff5e343d1a7f38b294997a2cc6e8e6b',
+    address: '0x0f5318c4412f18b4ca77765706430e6781654005',
+    pptAddress: '0xa41cb127aff0b67ef19fa5da55ced7a0be8982e3',
     transaction: methods.transaction,
   },
   depositContractsManager: {
     abi: getABI('DepositContractsManager'),
-    address: '0xa0ae44c1adb7e09844d481a1d11f1b73e70b7817',
+    address: '0x79e74b1862d4a8ecb11e7659b1b9f23d78547642',
     transaction: methods.transaction,
   },
   crowdSale: {
     abi: getABI('Crowdsale'),
     transaction: methods.transaction,
   },
+  crowdsaleManager: {
+    abi: getABI('CrowdsaleManager'),
+    address: '0x3f5de306e76f97b8372b54f02ea34c51f30444ee',
+    transaction: methods.transaction,
+  },
   currencyToken: {
     abi: getABI('CurrencyToken'),
-    address: '0xefbf878eb12a79f11e8d3076ef4c228aa3e0a08d',
     transaction: methods.transaction,
   },
   populousToken: {
     abi: getABI('PopulousToken'),
-    address: '0x4512299e0ff5e343d1a7f38b294997a2cc6e8e6b',
+    address: '0xa41cb127aff0b67ef19fa5da55ced7a0be8982e3',
     transaction: methods.transaction,
   },
 };

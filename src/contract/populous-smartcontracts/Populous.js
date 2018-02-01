@@ -176,37 +176,7 @@ export default {
       from: from,
     });
   },
-  createCrowdsale: (connect, contract, from,
-                    currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount,
-                    fundingGoal, platformTaxPercent, signedDocumentIPFSHash, extraTime) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-    const params = {
-      currencySymbol: connect.utils.toHex(currencySymbol),
-      borrowerId: connect.utils.toHex(borrowerId),
-      invoiceId: connect.utils.toHex(invoiceId),
-      invoiceNumber: invoiceNumber,
-      invoiceAmount: invoiceAmount,
-      fundingGoal: fundingGoal,
-      platformTaxPercent: platformTaxPercent,
-      signedDocumentIPFSHash: signedDocumentIPFSHash,
-      extraTime: extraTime,
-    };
 
-    return contract.transaction.gasLimit(connect)
-      .then(gas =>
-        contractInstance.methods.createCrowdsale(...Object.values(params))
-          .send({
-            from: from,
-            gas: gas,
-          }))
-      .then((result) => {
-        if (result.status === constants.statusMap.fail) {
-          throw new Error('Failed transaction');
-        }
-
-        return result.events.EventNewCrowdsale.returnValues.crowdsale;
-      });
-  },
 
   bid: (connect, contract, from, crowdsaleAddr, groupIndex, bidderId, name, value) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
@@ -318,44 +288,20 @@ export default {
         gas: gas,
       }));
   },
-  createDepositContract: (connect, contract, from, clientId) => {
+  exchangeCurrency: (connect, contract, from,
+                     clientId, fromCurrency, toCurrency, fromAmount, toAmount, feeAmount, conversionRate) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
     const params = {
       clientId: connect.utils.asciiToHex(clientId),
-    };
-
-    return contract.transaction.gasLimit(connect).then(gas =>
-      contractInstance.methods.createDepositContract(...Object.values(params)).send({
-        from: from,
-        gas: gas,
-      }));
-  },
-  deposit: (connect, contract, from, clientId, tokenContract, receiveCurrency, depositAmount, receiveAmount) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-    const params = {
-      clientId: connect.utils.asciiToHex(clientId),
-      tokenContract: tokenContract,
-      receiveCurrency: connect.utils.asciiToHex(receiveCurrency),
-      depositAmount: depositAmount,
-      receiveAmount: receiveAmount,
+      fromCurrency: connect.utils.asciiToHex(fromCurrency),
+      toCurrency: connect.utils.asciiToHex(toCurrency),
+      fromAmount,
+      toAmount,
+      feeAmount,
+      conversionRate: connect.utils.asciiToHex(conversionRate),
     };
     return contract.transaction.gasLimit(connect).then(gas =>
-      contractInstance.methods.deposit(...Object.values(params)).send({
-        from: from,
-        gas: gas,
-      }));
-  },
-  releaseDeposit: (connect, contract, from, clientId, tokenContract, releaseCurrency, receiver, depositIndex) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-    const params = {
-      clientId: connect.utils.asciiToHex(clientId),
-      tokenContract: tokenContract,
-      releaseCurrency: connect.utils.asciiToHex(releaseCurrency),
-      receiver: receiver,
-      depositIndex: depositIndex,
-    };
-    return contract.transaction.gasLimit(connect).then(gas =>
-      contractInstance.methods.releaseDeposit(...Object.values(params)).send({
+      contractInstance.methods.exchangeCurrency(...Object.values(params)).send({
         from: from,
         gas: gas,
       }));

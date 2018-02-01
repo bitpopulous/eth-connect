@@ -1,6 +1,7 @@
 import { expect, assert } from 'chai';
 import Populous from './Populous';
 import Crowdsale from './Crowdsale';
+import CrowdsaleManager from './CrowdsaleManager';
 import { connect } from '../../methods/connect';
 import { network, contract } from '../../config';
 import createdCurrencies, { createCurrencyTest } from "../testsCommon/create-currency-test";
@@ -47,8 +48,8 @@ describe('Crowdsale methods', () => {
       exxtraTime = 120;
 
 
-    Populous.createCrowdsale(settings.web3, contract.populous, fromAddress,
-      currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount,
+    CrowdsaleManager.createCrowdsale(settings.web3, contract.crowdsaleManager, fromAddress,
+      contract.populous.address, currencySymbol, borrowerId, invoiceId, invoiceNumber, invoiceAmount,
       fundingGoal, platformTaxPercent, signedDocumentIPFSHash, exxtraTime)
       .then(crowdsaleAddress => {
         assert.isString(crowdsaleAddress);
