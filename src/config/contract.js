@@ -18,7 +18,7 @@ export default {
   populous: {
     abi: getABI('Populous'),
     address: '0x0f5318c4412f18b4ca77765706430e6781654005',
-    pptAddress: '0xa41cb127aff0b67ef19fa5da55ced7a0be8982e3',
+    pptAddress: '0xdfc6d8fe1bdc425731c02ecd84e07fac2394d5ba',
     transaction: methods.transaction,
   },
   depositContractsManager: {

@@ -14,7 +14,7 @@ export function connect(network) {
     web3 = new Web3(new Web3.providers.HttpProvider(`http://${network.address}:${network.port}`));
   } else {
     // set the provider you want from Web3.providers
-    web3 = new Web3(new Web3.providers.WebsocketProvider(`ws://${network.address}:${network.port}`));
+    web3 = new Web3(new Web3.providers.WebsocketProvider(network.protocol + `://${network.address}:${network.port}`));
   }
 
   return web3;
