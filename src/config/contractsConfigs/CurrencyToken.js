@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 export default {
   "contractName": "CurrencyToken",
   "abi": [
@@ -2177,4 +2175,4 @@ export default {
   "networks": {},
   "schemaVersion": "1.0.0",
   "updatedAt": "2018-01-24T16:00:11.167Z"
-};
+}

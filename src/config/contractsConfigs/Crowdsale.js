@@ -1,6 +1,4 @@
-/* eslint-disable */
-
-export default {
+export default  {
   "contractName": "Crowdsale",
   "abi": [
     {
@@ -19574,4 +19572,4 @@ export default {
   "networks": {},
   "schemaVersion": "1.0.0",
   "updatedAt": "2018-01-24T16:03:54.580Z"
-};
+}

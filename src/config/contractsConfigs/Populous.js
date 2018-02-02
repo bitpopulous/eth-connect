@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 export default {
   "contractName": "Populous",
   "abi": [
@@ -24702,4 +24700,4 @@ export default {
   },
   "schemaVersion": "1.0.0",
   "updatedAt": "2018-01-24T16:07:29.344Z"
-};
+}

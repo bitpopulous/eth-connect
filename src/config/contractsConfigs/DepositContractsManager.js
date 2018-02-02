@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 export default {
   "contractName": "DepositContractsManager",
   "abi": [
@@ -7609,4 +7607,4 @@ export default {
   },
   "schemaVersion": "1.0.0",
   "updatedAt": "2018-01-24T16:07:29.328Z"
-};
+}
