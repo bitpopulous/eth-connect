@@ -226,18 +226,6 @@ export default {
           gas: gas,
         }));
   },
-  refundLosingGroups: (connect, contract, from, crowdsaleAddr) => {
-    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
-    const params = {
-      crowdsaleAddr: crowdsaleAddr,
-    };
-
-    return contract.transaction.gasLimit(connect).then(gas =>
-      contractInstance.methods.refundLosingGroups(...Object.values(params)).send({
-        from: from,
-        gas: gas,
-      }));
-  },
   refundLosingGroupBidder: (connect, contract, from, crowdsaleAddr, groupIndex, bidderIndex) => {
     const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
 
@@ -306,4 +294,20 @@ export default {
         gas: gas,
       }));
   },
+
+  importExternalPokens(connect, contract, from, currencySymbol, fromAddress, accountId) {
+    const contractInstance = new connect.eth.Contract(contract.abi, contract.address);
+    const params = {
+      currencySymbol: connect.utils.asciiToHex(currencySymbol),
+      fromAddress,
+      accountId: connect.utils.asciiToHex(accountId),
+    };
+
+    return contract.transaction.gasLimit(connect).then(gas =>
+      contractInstance.methods.importExternalPokens(...Object.values(params)).send({
+        from: from,
+        gas: gas,
+      }));
+  },
+
 };
