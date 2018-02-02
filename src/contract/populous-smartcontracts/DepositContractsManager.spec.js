@@ -35,31 +35,12 @@ describe('Deposit Contracts Manager contract', () => {
       .catch(done);
   });
 
-  describe('Deposit Contracts Manager fucntions', () => {
-
-    it('getActiveDeposit should gets active deposit', done => {
-      this.timeout(15 * 60 * 1000); // 15 min
-      assert(createdCurrencies[settings.receiveCurrency], "Currency required.");
-
-      DepositContractsManager.getActiveDeposit(settings.web3, contract.depositContractsManager, settings.from,
-        settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, 0)
-        .then((deposit) => {
-          console.log('active deposit: ', deposit);
-          expect(parseInt(deposit[0])).to.equal(settings.depositAmount);
-          expect(parseInt(deposit[1])).to.equal(settings.receiveAmount);
-          expect(deposit[2]).to.be.false;
-          done();
-        })
-        .catch(e => {
-          done(e);
-        })
-        .finally(e => expect(e).to.be.undefined);
-    });
+  describe('Deposit Contracts Manager functions', () => {
 
     it('createDepositContract: should create deposit contract', function (done) {
       this.timeout(15 * 60 * 1000); // 15 min
 
-      DepositContractsManager.create(settings.web3, contract.populous, settings.from,
+      DepositContractsManager.create(settings.web3, contract.depositContractsManager, settings.from,
         settings.INVESTOR1_ACC)
         .then(result => {
           expect(result).to.exist;
@@ -74,7 +55,7 @@ describe('Deposit Contracts Manager contract', () => {
       this.timeout(15 * 60 * 1000); // 15 min
       assert(createdCurrencies[settings.receiveCurrency], "Currency required.");
 
-      DepositContractsManager.deposit(settings.web3, contract.populous, settings.from,
+      DepositContractsManager.deposit(settings.web3, contract.depositContractsManager, settings.from,
         PopulousContract.address, settings.INVESTOR1_ACC, settings.clientExternal, settings.receiveCurrency, 200, 190)
         .then(result => {
           expect(result).to.exist;
@@ -88,7 +69,7 @@ describe('Deposit Contracts Manager contract', () => {
       this.timeout(15 * 60 * 1000); // 15 min
       assert(createdCurrencies[settings.receiveCurrency], "Currency required.");
 
-      DepositContractsManager.releaseDeposit(settings.web3, contract.populous, settings.from,
+      DepositContractsManager.releaseDeposit(settings.web3, contract.depositContractsManager, settings.from,
         PopulousContract.address, settings.INVESTOR1_ACC, settings.clientExternal, settings.receiveCurrency, settings.clientExternal, 0)
         .then(result => {
           expect(result).to.exist;
@@ -97,28 +78,70 @@ describe('Deposit Contracts Manager contract', () => {
         .catch(e => done(e))
         .finally(e => expect(e).to.be.undefined);
     });
+  });
 
-    it('getActiveDepositList: successfully transfers ppt from platform balance to deposit contract address', function (done) {
+  describe('The getActiveDepositList method', () => {
+    it('successfully transfers ppt from platform balance to deposit contract address', function (done) {
       this.timeout(15 * 60 * 1000); // 15 min
 
-      let depositAddress;
-
       DepositContractsManager.getDepositAddress(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC)
-        .then((returnedDepositAddress) => {
+        .then((depositAddress) => {
           console.log('deposit address: ', depositAddress);
           expect(depositAddress).to.be.a('string');
           expect(depositAddress).to.have.lengthOf(42);
-          depositAddress = returnedDepositAddress;
+          global.depositAddress = depositAddress;
           return PopulousToken.transferToAddress(settings.web3, contract.populousToken, settings.from, depositAddress, settings.depositAmount)
         })
         .then((pptTransfer) => {
           // console.log('PPT transfer: ', pptTransfer);
           expect(pptTransfer).to.exist;
-          return PopulousToken.balanceOf(settings.web3, contract.populousToken, settings.from, depositAddress)
+          return PopulousToken.balanceOf(settings.web3, contract.populousToken, settings.from, global.depositAddress)
         })
         .then((depositBalance) => {
           console.log('deposit address ppt balance: ', depositBalance);
           assert.isAtLeast(depositBalance, settings.depositAmount, "Failed getting ppt deposit amount from platform");
+          done();
+        })
+        .catch(e => {
+          done(e);
+        })
+        .finally(e => expect(e).to.be.undefined);
+    });
+  });
+
+
+  describe('The getActiveDepositList method', () => {
+    it('successfully gets deposit list', function (done) {
+      this.timeout(15 * 60 * 1000); // 15 min
+
+      Populous.deposit(settings.web3, contract.populous, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, settings.depositAmount, settings.receiveAmount)
+        .then((result) => {
+          // console.log('populous deposit result: ');
+          // console.log(result);
+          return DepositContractsManager.getActiveDepositList(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency)
+        })
+        .then((deposit) => {
+          console.log('active deposit list: ', deposit);
+          assert.isAtLeast(parseInt(deposit[1]), settings.depositAmount, "Failed getting correct ppt deposit amount");
+          assert.isAtLeast(parseInt(deposit[2]), settings.receiveAmount, "Failed getting correct poken receive amount");
+          done();
+        })
+        .catch(e => {
+          done(e);
+        })
+        .finally(e => expect(e).to.be.undefined);
+    });
+  });
+
+
+  describe('The getActiveDeposit method', () => {
+    it('successfully gets active deposit', done => {
+      DepositContractsManager.getActiveDeposit(settings.web3, contract.depositContractsManager, settings.from, settings.INVESTOR1_ACC, contract.populousToken.address, settings.receiveCurrency, 0)
+        .then((deposit) => {
+          console.log('active deposit: ', deposit);
+          expect(parseInt(deposit[0])).to.equal(settings.depositAmount);
+          expect(parseInt(deposit[1])).to.equal(settings.receiveAmount);
+          expect(deposit[2]).to.be.false;
           done();
         })
         .catch(e => {
