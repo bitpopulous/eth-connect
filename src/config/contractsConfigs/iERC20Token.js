@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export default {
   "contractName": "iERC20Token",
   "abi": [
