@@ -18,6 +18,7 @@ export default {
     populous: smartContracts.populous,
     depositContractsManager: smartContracts.depositContractsManager,
     crowdSale: smartContracts.crowdSale,
+    crowdsaleManager: smartContracts.crowdsaleManager,
     currencyToken: smartContracts.currencyToken,
     ierc20token: smartContracts.ierc20token,
   },
