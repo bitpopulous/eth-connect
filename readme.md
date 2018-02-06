@@ -41,3 +41,5 @@ step 1, connect to network. takes network
   example 4.1: contract._build('populous', '0xbdc82ccac9fd5d90c5b8a87d1b3c22a88b3411bd');
   example 4.2: contract.populous
   ```
+  
+  Note: this repo has been moved to populous-common. It'll be updated every month.
